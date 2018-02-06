@@ -1,0 +1,214 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Junjie Jiang
+"""
+
+
+import os, errno
+import jsonpickle
+import json
+import datetime
+import botometer
+import config
+#from tzwhere import tzwhere
+from timezonefinder import TimezoneFinder
+import pandas as pd
+import pytz
+from twarc import Twarc
+
+def readCsv(filename):
+    csvFile = open(filename,'r')
+    csvRowList = csvFile.read().split('\n')
+    csvList = []
+    for row in csvRowList:
+        tempList = []
+        if row != []:
+            tempList = row.split(',')
+            csvList.append(tempList)
+    return csvList
+
+def serialize(stuff,filename):
+    outfile = open(filename,'a')
+    outfile.write(jsonpickle.encode(stuff))
+    outfile.close
+    
+def deserialize(filename):
+    outfile = open(filename,'r')
+    stuff = jsonpickle.decode(str(outfile.read()))
+    outfile.close
+    return stuff
+    
+def silentRemove(filename):
+    try:
+        os.remove(filename)
+    except OSError as e: 
+        if e.errno != errno.ENOENT: 
+            raise
+            
+def dateStrToDate(dateStr):
+    datetime_obj = datetime.datetime.strptime(dateStr, '%a %b %d %H:%M:%S +0000 %Y')
+    return datetime_obj
+    
+def dateToDateStr(date):
+    dateStr = datetime.datetime.strftime(date,'%a %b %d %H:%M:%S +0000 %Y')
+    return dateStr
+    
+def timeDeltaGT(date1, date2, days, absolute=False):
+    '''
+    date1 - date2 > days?
+    '''
+    delta = date1 - date2
+    if absolute == True:
+        delta = abs(delta)
+    return delta > datetime.timedelta(days)
+
+def dateMinus(date1, date2, absolute=False):
+    if absolute == True and timeDeltaGT(date2, date1, 0):
+        delta = date2 - date1
+    else:
+        delta = date1 - date2
+    day = delta.days
+    second = delta.seconds
+    return day + second / 86400
+        
+def checkRobot(robotDict, nonRobotDict, userScreenName):
+    #robotDict = deserialize('Data/robotDict.json')
+    if userScreenName in robotDict:
+        return robotDict, nonRobotDict, robotDict[userScreenName]
+    else:
+        #nonRobotDict = deserialize('Data/nonRobotDict.json')
+        if userScreenName in nonRobotDict:
+            return  robotDict, nonRobotDict, nonRobotDict[userScreenName]
+        else:
+            mashape_key = config.mashape_key
+            twitter_app_auth = {
+                'consumer_key': config.consumer_key,
+                'consumer_secret': config.consumer_secret,
+                'access_token': config.access_token,
+                'access_token_secret': config.access_secret,
+              }
+            bom = botometer.Botometer(mashape_key=mashape_key, **twitter_app_auth)
+            result = bom.check_account('@'+str(userScreenName))
+            if result['scores']['english'] <= 0.45:
+                nonRobotDict[userScreenName] = result
+                silentRemove('Data/nonRobotDict.json')
+                serialize(nonRobotDict, 'Data/nonRobotDict.json')
+            else:
+                robotDict[userScreenName] = result
+                silentRemove('Data/robotDict.json')
+                serialize(robotDict, 'Data/robotDict.json')
+            return robotDict, nonRobotDict, result    
+
+def userInUserList(userID, userList):    
+    for i in userList:
+        if i.id == userID:
+            return i
+    return False    
+    
+def checkUserNameID(t,userID):
+    try:
+        for user in t.user_lookup(user_ids=[userID]):
+            return True
+    except:
+        return False
+
+def checkUserListNameID():
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    workerInfo = readCsv("Data/MTurk/worker_info.csv")
+    resultInfo = readCsv("Data/MTurk/result_info.csv")
+    workerfile = open('Data/MTurk/worker_info.csv')
+    resultfile = open('Data/MTurk/result_info.csv')
+    newWorkerInfo = workerfile.read().split('\n')
+    newResultInfo = resultfile.read().split('\n')
+    workerfile.close()
+    resultfile.close()
+    newworker = newWorkerInfo[0] + '\n'
+    newresult = newResultInfo[0] + '\n'
+    rejectList = []
+    acceptList = []
+    k = 0
+    for worker in workerInfo[1:-1]:
+        k += 1
+        if checkUserNameID(t,worker[3]):
+            acceptList.append(worker)
+            newworker += newWorkerInfo[workerInfo.index(worker)] + '\n'
+            newresult += newResultInfo[workerInfo.index(worker)] + '\n'
+            print(str(k) + "th user is accepted")
+        else:
+            rejectList.append(worker)
+            print(str(k) + "th user is rejected")
+    if os.path.isfile('Data/MTurk/acceptList.csv'):
+        silentRemove('Data/MTurk/acceptList.csv')
+    if os.path.isfile('Data/MTurk/rejectList.csv'):
+        silentRemove('Data/MTurk/rejectList.csv')
+    if os.path.isfile('Data/MTurk/worker_info.csv'):
+        silentRemove('Data/MTurk/worker_info.csv')
+    if os.path.isfile('Data/MTurk/result_info.csv'):
+        silentRemove('Data/MTurk/result_info.csv')
+    acceptFile = open('Data/MTurk/acceptList.csv','a')
+    rejectFile = open('Data/MTurk/rejectList.csv','a')
+    wFile = open('Data/MTurk/worker_info.csv','a')
+    rFile = open('Data/MTurk/result_info.csv','a')
+    for acceptedUser in acceptList:
+        acceptFile.write(acceptedUser[3] + '\n')
+    for rejectedUser in rejectList:
+        rejectFile.write(rejectedUser[3] + '\n')
+    wFile.write(newworker)
+    rFile.write(newresult)
+    acceptFile.close()
+    rejectFile.close()
+    wFile.close()
+    rFile.close()
+
+def readJsonFile(fileNameStr, fileCount=""):
+    outfileName = fileNameStr + str(fileCount) + ".json"
+    outfile = open(outfileName,"r")
+    data = []
+    for line in outfile:
+        data.append(json.loads(line))
+    return data
+    
+def getTimeZone(coordinate):
+    my_func = TimezoneFinder().timezone_at  #Note the no parenthesis on the function call!
+    df = pd.DataFrame({'latitude': [coordinate[0]], 'longitude': [coordinate[1]], 'timezone': [0]})
+    df['timezone'] = df.apply(lambda x: my_func(lng=x['longitude'], lat=x['latitude']),axis=1)
+    return df['timezone'][0]
+
+def getLocationTime(coordinate, dateStr):
+    targetTimeZone = pytz.timezone(getTimeZone(coordinate))
+    date = dateStrToDate(dateStr)
+    localTimeZone = pytz.timezone('utc')
+    date = date.replace(tzinfo=localTimeZone)
+    date = date.astimezone(targetTimeZone)
+    return date
+
+'''
+a=dateStrToDate("Tue Mar 22 21:51:14 +0000 2006")
+print(datetime.datetime.strftime(a,'%a %b %d %H:%M:%S +0000 %Y'))
+b=dateStrToDate("Tue Mar 22 20:50:14 +0000 2006")
+print(dateToDateStr(b))
+print(timeDeltaGT(a,b,1,absolute=True))
+print(dateMinus(a,b)<3 and dateMinus(a,b)>0)
+print(a - b)
+
+
+#print(dateMinus(datetime.datetime.now(),a))
+
+
+local = pytz.timezone('utc')
+a=datetime.datetime.now() #+datetime.timedelta(5)
+print(a)
+a = a.replace(tzinfo=local)
+print(a)
+use = pytz.timezone('America/Denver')
+print(a.astimezone(use))
+
+a = getLocationTime([39,-104],"Tue Mar 22 21:51:14 +0000 2006")
+b = datetime.datetime.now()
+b = getLocationTime([39,-104],str(dateToDateStr(b)))
+print(a)
+print(b)
+'''
+#t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+#checkUserNameID(t,"97277710")
+#checkUserListNameID()

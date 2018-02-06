@@ -1,0 +1,179 @@
+# -*- coding: utf-8 -*-
+
+"""
+@author: Junjie Jiang
+"""
+
+
+import config
+import Utility
+from User import User
+from twarc import Twarc
+import time
+
+
+def test():
+    topNUserList = Utility.deserialize('Data/Users/topNUserList')
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    for i in range(1):
+        print(str(i+1) + " user being processed...")
+        updateUserFollowers(topNUserList[i],t)
+        updateUserFriends(topNUserList[i],t)
+        updateUserMentioned(topNUserList[i],t,3)
+        print(topNUserList[i].mentioned)
+    Utility.silentRemove('Data/Users/topNUserList')
+    print("Serializing topNUserList...")
+    Utility.serialize(topNUserList,'Data/Users/topNUserList')
+
+def updateEngagements(user, train=False):
+    if train == False:
+        filename = "Data/Predicting/Users/" + user
+        user = User(ID=user)
+        data = Utility.readJsonFile(filename)
+        user.screenName = data[0]['user']['name']
+    else:
+        filename = "Data/Training/Users/" + user
+        user = User(ID=user)
+        data = Utility.readJsonFile(filename)
+        user.screenName = data[0]['user']['name']
+    user.firstDate = Utility.dateStrToDate(data[0]["created_at"])
+    user.lastDate = Utility.dateStrToDate(data[-1]["created_at"])
+    user.deltaDate = Utility.dateMinus(user.firstDate,user.lastDate)
+    user.volume = len(data) / user.deltaDate
+    user.retweets = 0
+    user.questions = 0
+    user.reply = 0
+    user.links = 0
+    for tweet in data:
+        if 'retweeted_status' in tweet:
+            user.retweets += 1
+        if '?' in tweet['text']:
+            user.questions += 1
+        if tweet["in_reply_to_status_id"] != None:
+            user.reply += 1
+        user.links += len(tweet['entities']['urls'])
+    if user.deltaDate != 0:
+        user.retweets /= user.deltaDate
+        user.questions /= user.deltaDate
+        user.reply /= user.deltaDate
+        user.links /= user.deltaDate
+    return user, data
+    
+def updateUserAttributes():
+    topNUserList = Utility.deserialize('Data/Users/topNUserList')
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    for i in range(len(topNUserList)):
+        print(str(i+1) + " user being processed...")
+        updateEngagements(topNUserList[i])
+        updateUserFollowers(topNUserList[i])
+        updateUserFriends(topNUserList[i])
+        #updateUserMentioning(topNUserList[i],t,5)
+        #print(topNUserList[i].mentioning)
+        #updateUserMentioned(topNUserList[i],t,5)
+        #print(topNUserList[i].mentioned)
+        #updateUserReciprocity(topNUserList[i])
+        #print(topNUserList[i].reciprocity)
+    Utility.silentRemove('Data/Users/topNUserList')
+    print("Serializing topNUserList...")
+    Utility.serialize(topNUserList,'Data/Users/topNUserList')
+    return topNUserList
+
+def updateUserFollowers(user):
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    screenName = user.screenName
+    followersIDList = [ str(follower) for follower in t.follower_ids(screenName) ]
+    #user.followers = followersIDList
+    #user.followers = [ name['screen_name'] for name in t.user_lookup(user_ids=user.followers) ]
+    user.numFollowers = len(followersIDList)
+    
+def updateUserFriends(user):
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    screenName = user.screenName
+    friendsIDList = [ str(friends) for friends in t.friend_ids(screenName) ]
+    #user.followees = friendsIDList
+    #user.followees = [ name['screen_name'] for name in t.user_lookup(user_ids=user.followees) ]
+    user.numFollowees = len(friendsIDList)
+                      
+def updateUserMentioned(user,t,period):
+    mentionDict = {}
+    atUserScreenName = '@' + user.screenName
+    for tweet in t.search(q=atUserScreenName):
+        deltaDate = Utility.dateMinus(user.firstDate,Utility.dateStrToDate(tweet['created_at']))
+        if deltaDate >= 0:
+            if deltaDate > period:
+                break
+            
+            exist = False
+            userName = tweet['user']['screen_name']
+            for i in mentionDict:
+                if i == userName:
+                    mentionDict[i] += 1
+                    exist = True
+                    break
+            
+            if exist == False:
+                trys = -1
+                while trys < 10:
+                    
+                    try:
+                        RI = Utility.checkRobot(userName)['scores']['english']
+                        break
+                    except Exception as e:
+                        trys += 1
+                        if e.__dict__['response'].status_code == 429:
+                            print("Rate limit exceeded. Sleep 30 seconds..." + ' ' + user.screenName + " " + user.id)
+                            trys = -1
+                            time.sleep(30)
+                        elif trys == 0 and str(e)[:3] == '502':
+                            print("502 Server Error. Sleep 10 seconds..." + ' ' + user.screenName + " " + user.id)
+                            time.sleep(10)
+                        elif trys > 0 and str(e)[:3] == '502':
+                            print("502 Server Error. Sleep 60 seconds..." + ' ' + user.screenName + " " + user.id)
+                            time.sleep(60)
+                        else:
+                            print("Error: " + str(e) + ' ' + user.screenName + " " + user.id)
+                            time.sleep(5)
+                        if trys == 10:
+                            user.robotIndex = 1.0
+                            print("Failed")
+                    
+                if RI > 0.5:
+                    break
+                
+                mentionDict[userName] = 1
+    user.mentioned = mentionDict
+        
+def updateUserMentioning(user,t,period):
+    count = 0
+    mentionDict = {}
+    for tweet in t.timeline(user_id=user.id):
+        if count == 0:
+            user.firstDate = Utility.dateStrToDate(tweet['created_at'])
+            count = 1
+        deltaDate = Utility.dateMinus(user.firstDate,Utility.dateStrToDate(tweet['created_at']))
+        if not (deltaDate <= period):
+            break
+
+        for userobj in tweet['entities']['user_mentions']:
+            userName = userobj['screen_name']
+            if userName in mentionDict:
+                mentionDict[userName] += 1
+            else:
+                mentionDict[userName] = 1
+    user.mentioning = mentionDict
+    
+def updateUserReciprocity(user):
+    result = 0.0
+    for name in user.mentioned:
+        tmpResult = 0.0
+        if name in user.mentioning:
+            tmpResult = user.mentioning[name] / user.mentioned[name]
+        result += tmpResult
+    if len(user.mentioned) == 0:
+        user.reciprocity = 0.0
+    else:
+        user.reciprocity = result / len(user.mentioned)
+                    
+    
+#updateUserAttributes()
+#test()

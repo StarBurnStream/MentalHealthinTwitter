@@ -1,0 +1,9 @@
+BajaColorado 5605
+HighCountry 1459
+NWColorado 366
+NortheasternPlains 7753
+NorthernFrontRange 100522
+SoutheasternPlains 274
+SouthernFrontRange 16706
+SouthwestColorado 2867
+WesternSlope 2077

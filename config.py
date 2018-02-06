@@ -1,0 +1,5 @@
+consumer_key = 'Xkaz571C09TIk5FKM1VEYmUDw'
+consumer_secret = 'BjARbzNDFIrkxnPdpRr27hUdVydkmymuTXV6YTqgwMKU8seiHp'
+access_token = '863833203102101505-OlN7lT1fsKjx4dHzBm9XXJs8y995Obq'
+access_secret = '87ChV9kWPovrVjgOypAfFpCUOVZHD2qRVsmWzdor0kUEK'
+mashape_key = 'uF6JGhTrFjmshj2DJun1MmL0g2xHp166evzjsnIxRtcJWms00w'

@@ -1,0 +1,23 @@
+"""
+@author: Junjie Jiang
+"""
+
+
+from vaderSentiment import SentimentIntensityAnalyzer
+from Twarcfind import *
+from pprint import pprint
+import Utility
+
+def getPANA(tweet):
+    analyzer = SentimentIntensityAnalyzer()
+    vs = analyzer.polarity_scores(tweet["text"])
+    return vs["pos"],vs["neg"]
+
+def getCompound(tweet):
+    analyzer = SentimentIntensityAnalyzer()
+    vs = analyzer.polarity_scores(tweet["text"])
+    return vs['compound']
+
+def getDominanceAndActivation(tweet):
+    
+    return dominance, activation
