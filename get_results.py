@@ -18,8 +18,8 @@ def get_results():
 
    # Use the hit_id previously created
    hitList = readCsv('Data/MTurk/hitsinfo.csv')
-   hit_id = str(hitList[2][0])
-   #hit_id = "3909MD9T2ZYDRVN0LWIU10RUMJ9EF2"
+   #hit_id = str(hitList[2][0])
+   hit_id = "3OKP4QVBP2EGFI2JGBMQN21F4ABAGM"
    # We are only publishing this task to one Worker
    # So we will get back an array with one item if it has been completed
    worker_results = mturk.list_assignments_for_hit(HITId=hit_id)
@@ -67,7 +67,7 @@ def get_results():
                      else:
                         resultFile.write(answer_field['FreeText'] + ',')
                else:
-                  if i == 12:
+                  if i == 11:
                      if answer_field['FreeText'] == None:
                         workerFile.write('None' + '\n')
                      else:
@@ -84,4 +84,4 @@ def get_results():
    else:
       print ("No results ready yet")
 
-#get_results()
+get_results()

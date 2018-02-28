@@ -18,11 +18,49 @@ import dom_act
 import twarcWork
 
 def main():
-    print("Training SVM...")
+    '''print("Training SVM...")
     clf = trainSVM()
     print("Predicting...")
     prediction = predictUserList(clf)
-    print(prediction)
+    print(prediction)'''
+    dataImitation()
+
+def dataImitation():
+    depressed = open("Data/Depressed.txt","r")
+    undepressed = open("Data/UnDepressed.txt","r")
+    dataimitation = open("Data/Imitation/imitation.csv","a")
+    dataimitation.write("depressed or not,volume,retweets,reply,questions,links,numFollowers,numFollowees,depression,swear,I,we,they,shehe,positiveemo,negativeemo\n")
+    depressedList = depressed.read().split('\n')
+    undepressedList = undepressed.read().split('\n')
+
+    if undepressedList[-1] == '':
+        undepressedList = undepressedList[:-1]
+    if depressedList[-1] == '':
+        depressedList = depressedList[:-1]
+    print(depressedList,undepressedList)
+    vectorList = []
+    liwcDict = Utility.deserialize('Data/Imitation/liwcDict.json')
+    k = 0
+    for user in (depressedList + undepressedList):
+        k += 1
+        print( str(k) + 'th user being analyzed...')
+        if user in depressedList:
+            newUser, data = attributesWithoutLIWC.updateImitationEngagements(user,depressed=True)
+            vector = [1]
+        else:
+            newUser, data = attributesWithoutLIWC.updateImitationEngagements(user,depressed=False)
+            vector = [0]
+        attributesWithoutLIWC.updateUserFollowers(newUser)
+        attributesWithoutLIWC.updateUserFriends(newUser)
+        vector += [newUser.volume, newUser.retweets, newUser.reply, newUser.questions, newUser.links,
+                      newUser.numFollowers, newUser.numFollowees] + liwcDict[str(user)[1:]]
+        linestr = ''
+        for item in vector:
+            linestr += str(item) + ','
+        linestr = linestr[:-1] + '\n'
+        dataimitation.write(linestr)
+    dataimitation.close()
+    return
 
 def matchInformation():
     wList = Utility.readCsv("Data/MTurk/worker_info.csv")[:-1]
@@ -35,6 +73,7 @@ def trainSVM():
     idList, scoreList = matchInformation()
     vectorList = []
     targetList = []
+    liwcDict = Utility.deserialize('Data/Training/liwcDict.json')
     if os.path.exists('Data/Training/TrainingUserList.json'):
         userDict = Utility.deserialize('Data/Training/TrainingUserList.json')
     else:
@@ -63,13 +102,14 @@ def trainSVM():
             dom /= len(data)
             act /= len(data)
             vector = [newUser.volume, newUser.retweets, newUser.reply, newUser.questions, newUser.links,
-                      newUser.numFollowers, newUser.numFollowees, pa, na, dom, act]
+                      newUser.numFollowers, newUser.numFollowees] + [pa,na,dom,act]#liwcDict[str(userid)]
             userDict[userid] = vector
         else:
             vector = userDict[userid]
         vectorList.append(vector)
         targetList.append(scoreList[idList.index(userid)])
-        targetList = ['1','1','0','0','1','0']  # Trial
+        targetList = ['24','12','0','0','16','0']  # Trial
+        #targetList = ['1','1','0','0','1','0']  # Trial
     print(vectorList)
     print(targetList)
     Utility.silentRemove('Data/Training/TrainingUserList.json')
@@ -88,7 +128,8 @@ def trainSVM():
 def predictUserList(clf):
     idfile = open('Data/MTurk/rejectList.csv','r')
     userList = idfile.read().split('\n')[:-1]
-    userList = ['14835269','898264108914667520','225761199','532688309'] # Trial
+    userList = ['14835269','898264108914667520','225761199'] # Trial,'532688309'
+    liwcDict = Utility.deserialize('Data/Predicting/liwcDict.json')
     if os.path.exists('Data/Predicting/PredictionDict.json'):
         predictionDict = Utility.deserialize('Data/Predicting/PredictionDict.json')
     else:
@@ -116,7 +157,7 @@ def predictUserList(clf):
             dom /= len(data)
             act /= len(data)
             vector = [user.volume, user.retweets, user.reply, user.questions, user.links,
-                      user.numFollowers, user.numFollowees, pa, na, dom, act]
+                      user.numFollowers, user.numFollowees] + [pa, na, dom, act] #liwcDict[str(userid)]  
             prediction[userid] = int(list(clf.predict([vector]))[0])
             predictionDict[userid] = prediction[userid]
         else:
@@ -322,6 +363,36 @@ def predictUserList2(clf, userList, directory, county):
     Utility.serialize(predictionDict, 'Data/PredictionDict.json')
     return prediction
 
+def testSVM():
+    filename = "Data/testTrain.csv"
+    trainList = Utility.readCsv(filename)[1:]
+    vectorList = []
+    targetList = []
+    zero = trainList[0][-1]
+    trainList = trainList[:-1]
+    for row in trainList:
+        vectorList.append(row[:-1])
+        if row[-1] == zero:
+            targetList.append(0)
+        else:
+            targetList.append(1)
+
+    for item in vectorList:
+        print(item)
+    clf = sklearn.svm.SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
+        decision_function_shape=None, degree=3, gamma='auto', kernel='rbf',
+        max_iter=-1, probability=False, random_state=None, shrinking=True,
+        tol=0.001, verbose=False)
+    clf.fit(vectorList, targetList) 
+
+    filename = "Data/testTrain.csv"
+    trainList = Utility.readCsv(filename)[1:]
+    resultList = []
+    trainList = trainList[:-1]
+    for row in trainList:
+        vectorList.append(row[:-1])
+        resultList.append(clf.predict([row[:-1]]))
+    print(resultList)
 '''
 user1 = User(screenName='lightofsorrow', ID='823323480682680320')
 user2 = User(screenName='rachaelxss', ID='939604578')
@@ -330,5 +401,6 @@ user4 = User(screenName='mommawedel', ID='47293791')
 userList = [user1, user2, user3, user4]
 main(userList)
 '''
-main()
+#main()
+testSVM()
 

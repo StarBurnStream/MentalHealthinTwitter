@@ -112,6 +112,13 @@ def checkUserNameID(t,userID):
     except:
         return False
 
+def checkUserIDName(t,username):
+    try:
+        for user in t.user_lookup(screen_names=[username]):
+            return True
+    except:
+        return False
+
 def checkUserListNameID():
     t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
     workerInfo = readCsv("Data/MTurk/worker_info.csv")
@@ -129,7 +136,7 @@ def checkUserListNameID():
     k = 0
     for worker in workerInfo[1:-1]:
         k += 1
-        if checkUserNameID(t,worker[3]):
+        if worker[3] != "None" and (checkUserNameID(t,worker[3]) or checkUserIDName(t,worker[3])):
             acceptList.append(worker)
             newworker += newWorkerInfo[workerInfo.index(worker)] + '\n'
             newresult += newResultInfo[workerInfo.index(worker)] + '\n'
@@ -189,7 +196,7 @@ b=dateStrToDate("Tue Mar 22 20:50:14 +0000 2006")
 print(dateToDateStr(b))
 print(timeDeltaGT(a,b,1,absolute=True))
 print(dateMinus(a,b)<3 and dateMinus(a,b)>0)
-print(a - b)
+print((a - b)>datetime.timedelta(0))
 
 
 #print(dateMinus(datetime.datetime.now(),a))
@@ -212,3 +219,9 @@ print(b)
 #t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
 #checkUserNameID(t,"97277710")
 #checkUserListNameID()
+
+#print(dateToDateStr(datetime.datetime.now()))
+#print(str(datetime.datetime.now())[11:13])
+#print(int("08"))
+#print(dateToDateStr(dateStrToDate("Tue Feb 20 00:00:00 +0000 2018")-datetime.timedelta(1)))
+#print(int("0"))

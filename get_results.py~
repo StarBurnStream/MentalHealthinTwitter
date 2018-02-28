@@ -18,20 +18,20 @@ def get_results():
 
    # Use the hit_id previously created
    hitList = readCsv('Data/MTurk/hitsinfo.csv')
-   hit_id = str(hitList[2][0])
-   #hit_id = "3909MD9T2ZYDRVN0LWIU10RUMJ9EF2"
+   #hit_id = str(hitList[2][0])
+   hit_id = "3OKP4QVBP2EGFI2JGBMQN21F4ABAGM"
    # We are only publishing this task to one Worker
    # So we will get back an array with one item if it has been completed
    worker_results = mturk.list_assignments_for_hit(HITId=hit_id)
    #print(worker_results)
    
-   if os.path.isfile('Data/MTurk/worker_info1.csv'):
-	   silentRemove('Data/MTurk/worker_info1.csv')
-   if os.path.isfile('Data/MTurk/result_info1.csv'):
-	   silentRemove('Data/MTurk/result_info1.csv')
+   if os.path.isfile('Data/MTurk/worker_info.csv'):
+	   silentRemove('Data/MTurk/worker_info.csv')
+   if os.path.isfile('Data/MTurk/result_info.csv'):
+	   silentRemove('Data/MTurk/result_info.csv')
    
-   workerFile = open('Data/MTurk/worker_info1.csv','a')
-   resultFile = open('Data/MTurk/result_info1.csv','a')
+   workerFile = open('Data/MTurk/worker_info.csv','a')
+   resultFile = open('Data/MTurk/result_info.csv','a')
    workerFile.write('workerID,HitID,assignmentID,userid\n')
    #resultFile.write('ID,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11,Q12,Q13,Q14,Q15,Q16\n')	
    resultFile.write('workerID,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10\n')	
@@ -67,7 +67,7 @@ def get_results():
                      else:
                         resultFile.write(answer_field['FreeText'] + ',')
                else:
-                  if i == 12:
+                  if i == 11:
                      if answer_field['FreeText'] == None:
                         workerFile.write('None' + '\n')
                      else:

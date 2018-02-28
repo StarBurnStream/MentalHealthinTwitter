@@ -25,6 +25,36 @@ def test():
     print("Serializing topNUserList...")
     Utility.serialize(topNUserList,'Data/Users/topNUserList')
 
+def updateImitationEngagements(user, depressed):
+    if depressed == True:
+        filename = "Data/Imiatation/Depressed/Data/" + user[1:]
+    else:
+        filename = "Data/Imiatation/Undepressed/Data/" + user[1:]
+    user = User(screenName=user)
+    data = Utility.readJsonFile(filename)
+    user.firstDate = Utility.dateStrToDate(data[0]["created_at"])
+    user.lastDate = Utility.dateStrToDate(data[-1]["created_at"])
+    user.deltaDate = Utility.dateMinus(user.firstDate,user.lastDate)
+    user.volume = len(data) / user.deltaDate
+    user.retweets = 0
+    user.questions = 0
+    user.reply = 0
+    user.links = 0
+    for tweet in data:
+        if 'retweeted_status' in tweet:
+            user.retweets += 1
+        if '?' in tweet['text']:
+            user.questions += 1
+        if tweet["in_reply_to_status_id"] != None:
+            user.reply += 1
+        user.links += len(tweet['entities']['urls'])
+    if user.deltaDate != 0:
+        user.retweets /= user.deltaDate
+        user.questions /= user.deltaDate
+        user.reply /= user.deltaDate
+        user.links /= user.deltaDate
+    return user, data
+
 def updateEngagements(user, train=False):
     if train == False:
         filename = "Data/Predicting/Users/" + user
@@ -57,10 +87,7 @@ def updateEngagements(user, train=False):
         user.questions /= user.deltaDate
         user.reply /= user.deltaDate
         user.links /= user.deltaDate
-    if train == True:
-        return user, data
-    if train == False:
-        return data
+    return user, data
     
 def updateUserAttributes():
     topNUserList = Utility.deserialize('Data/Users/topNUserList')
