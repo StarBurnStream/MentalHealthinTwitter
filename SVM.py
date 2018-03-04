@@ -16,14 +16,20 @@ import attributesWithLIWC
 import os
 import dom_act
 import twarcWork
+import depressionScoreCalculator
+import get_results
 
 def main():
+    get_results.csvToResults("Data/Dataset1.csv")
+    Utility.checkUserListNameID()
+    depressionScoreCalculator.resultinfoToScore()
+    twarcWork.acceptListToTrainingData()
     '''print("Training SVM...")
     clf = trainSVM()
     print("Predicting...")
     prediction = predictUserList(clf)
     print(prediction)'''
-    dataImitation()
+    #dataImitation()
 
 def dataImitation():
     depressed = open("Data/Depressed.txt","r")
@@ -401,6 +407,6 @@ user4 = User(screenName='mommawedel', ID='47293791')
 userList = [user1, user2, user3, user4]
 main(userList)
 '''
-#main()
-testSVM()
+main()
+#testSVM()
 

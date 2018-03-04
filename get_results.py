@@ -2,6 +2,7 @@ import boto3
 from Utility import *
 import os
 import xmltodict
+
 def get_results():
 
    MTURK_SANDBOX = 'https://mturk-requester-sandbox.us-east-1.amazonaws.com'
@@ -84,4 +85,31 @@ def get_results():
    else:
       print ("No results ready yet")
 
-get_results()
+def csvToResults(filename):
+   csvList1 = readCsv(filename)
+   if csvList1[-1] == []:
+      csvList = csvList1[1:-1]
+   else:
+      csvList = csvList1[1:]
+
+   if os.path.isfile('Data/MTurk/worker_info.csv'):
+	   silentRemove('Data/MTurk/worker_info.csv')
+   if os.path.isfile('Data/MTurk/result_info.csv'):
+	   silentRemove('Data/MTurk/result_info.csv')
+   
+   workerFile = open('Data/MTurk/worker_info.csv','a')
+   resultFile = open('Data/MTurk/result_info.csv','a')
+   workerFile.write('workerID,HitID,assignmentID,userid\n')
+   resultFile.write('workerID,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10\n')
+
+   for row in csvList:
+      if len(row) == 38 and '"{}"' not in row:
+         workerFile.write(row[15][1:-1]+',')
+         resultFile.write(row[15][1:-1]+',')
+         workerFile.write(row[0][1:-1]+','+row[14][1:-1]+','+row[28][1:-1]+'\n')
+         resultFile.write(row[29][1:-1]+','+row[30][1:-1]+','+row[31][1:-1]+','+row[32][1:-1]+','+row[33][1:-1]+','+row[34][1:-1]+','+row[35][1:-1]+','+row[36][1:-1]+','+row[37][1:-1]+','+row[27][1:-1]+'\n')
+
+   workerFile.close()
+   resultFile.close()
+
+

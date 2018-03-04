@@ -69,7 +69,6 @@ def resultinfoToScore():
     filestr = ''
     for i in newresult:
         filestr += i + '\n'
-    print(filestr)
     newresultfile.write(filestr[:-1])
     newresultfile.close()
 

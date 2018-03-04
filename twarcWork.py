@@ -67,12 +67,12 @@ def getUserData():
     t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
     fileStr = ''
     count = 0
-    for tweet in t.timeline(screen_name='realDonaldTrump'):
+    for tweet in t.timeline(screen_name='967375792115146752'):
         fileStr += json.dumps(tweet)+"\n"
         count += 1
     print("count:" + str(count))
     if fileStr != '':
-        outfile = open("Data/testTrump.json","a")
+        outfile = open("Data/967375792115146752.json","a")
         outfile.write(fileStr)
         outfile.close()
 
@@ -94,6 +94,19 @@ def getUserTrainingData(idList):
             if currentDate <= firstDate:
                 filestr += json.dumps(tweet)+"\n"
                 tweetstr += tweet['text'] + '\n'
+
+         for tweet in t.timeline(screen_name=user):
+            if count == 0:
+                firstDate = Utility.dateStrToDate(tweet["created_at"])
+                lastDate = firstDate - datetime.timedelta(14)
+                count += 1
+                currentDate = Utility.dateStrToDate(tweet["created_at"])
+            if currentDate < lastDate:
+                break
+            if currentDate <= firstDate:
+                filestr += json.dumps(tweet)+"\n"
+                tweetstr += tweet['text'] + '\n'
+
          if os.path.isfile("Data/Training/Users/" + user + ".json"):
             Utility.silentRemove("Data/Training/Users/" + user + ".json")
          if os.path.isfile("Data/Training/UserTweets/" + user + ".txt"):
@@ -152,3 +165,4 @@ def listToPredictingData():
 
 #acceptListToTrainingData()
 #listToPredictingData()
+#getUserData()

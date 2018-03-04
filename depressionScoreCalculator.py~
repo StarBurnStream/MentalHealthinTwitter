@@ -52,7 +52,7 @@ def getStringDescription(score=None, answerList=None):
         return "No deperssion.\n"
 
 def resultinfoToScore():
-    resultfile = open('Data/MTurk/result_info1.csv')
+    resultfile = open('Data/MTurk/result_info.csv')
     result = resultfile.read().split('\n')[:-1]
     resultfile.close()
     newresult = result
@@ -63,9 +63,9 @@ def resultinfoToScore():
             newresult[result.index(i)] = i + ',' + str(score)
         else: 
             newresult[result.index(i)] = i
-    if os.path.isfile('Data/MTurk/result_info1.csv'):
-        Utility.silentRemove('Data/MTurk/result_info1.csv')
-    newresultfile = open('Data/MTurk/result_info1.csv','a')
+    if os.path.isfile('Data/MTurk/result_info.csv'):
+        Utility.silentRemove('Data/MTurk/result_info.csv')
+    newresultfile = open('Data/MTurk/result_info.csv','a')
     filestr = ''
     for i in newresult:
         filestr += i + '\n'
@@ -73,4 +73,4 @@ def resultinfoToScore():
     newresultfile.write(filestr[:-1])
     newresultfile.close()
 
-resultinfoToScore()
+#resultinfoToScore()

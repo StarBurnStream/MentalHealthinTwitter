@@ -104,22 +104,95 @@ def userInUserList(userID, userList):
         if i.id == userID:
             return i
     return False    
-    
+
 def checkUserNameID(t,userID):
     try:
         for user in t.user_lookup(user_ids=[userID]):
-            return True
+            break
+        count = 0
+        for tweet in t.timeline(user_id=userID):
+            count += 1
+            break
+        if count > 0:
+            return [True, user["id"]]
+        else:
+            return [False,None]
     except:
-        return False
+        return [False,None]
 
 def checkUserIDName(t,username):
     try:
         for user in t.user_lookup(screen_names=[username]):
-            return True
+            break
+        count = 0
+        for tweet in t.timeline(screen_name=username):
+            count += 1
+            break
+        if count > 0:
+            return [True, user["id"]]
+        else:
+            return [False,None]
     except:
-        return False
+        return [False,None]
 
+#check users' name and id are valid and account can be accessed
 def checkUserListNameID():
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    workerInfo = readCsv("Data/MTurk/worker_info.csv")
+    resultInfo = readCsv("Data/MTurk/result_info.csv")
+    workerfile = open('Data/MTurk/worker_info.csv')
+    resultfile = open('Data/MTurk/result_info.csv')
+    newWorkerInfo = workerfile.read().split('\n')
+    newResultInfo = resultfile.read().split('\n')
+    workerfile.close()
+    resultfile.close()
+    newworker = newWorkerInfo[0] + '\n'
+    newresult = newResultInfo[0] + '\n'
+    rejectList = []
+    acceptList = []
+    k = 0
+    for worker in workerInfo[1:-1]:
+        k += 1
+        aname = checkUserNameID(t,worker[3])
+        aid = checkUserIDName(t,worker[3])
+        print(aid)
+        if worker[3] != "None" and (aname[0] or aid[0]):
+            if checkUserIDName(t,worker[3])[0]:
+                newworker += newWorkerInfo[workerInfo.index(worker)][:newWorkerInfo[workerInfo.index(worker)].rfind(',')] + ',' + str(aid[1]) + '\n'
+                acceptList.append(worker)
+                acceptList[-1][-1] = str(aid[1])
+            else:
+                newworker += newWorkerInfo[workerInfo.index(worker)] + '\n'
+                acceptList.append(worker)
+            newresult += newResultInfo[workerInfo.index(worker)] + '\n'
+            print(str(k) + "th user is accepted")
+        else:
+            rejectList.append(worker)
+            print(str(k) + "th user is rejected")
+    if os.path.isfile('Data/MTurk/acceptList.csv'):
+        silentRemove('Data/MTurk/acceptList.csv')
+    if os.path.isfile('Data/MTurk/rejectList.csv'):
+        silentRemove('Data/MTurk/rejectList.csv')
+    if os.path.isfile('Data/MTurk/worker_info.csv'):
+        silentRemove('Data/MTurk/worker_info.csv')
+    if os.path.isfile('Data/MTurk/result_info.csv'):
+        silentRemove('Data/MTurk/result_info.csv')
+    acceptFile = open('Data/MTurk/acceptList.csv','a')
+    rejectFile = open('Data/MTurk/rejectList.csv','a')
+    wFile = open('Data/MTurk/worker_info.csv','a')
+    rFile = open('Data/MTurk/result_info.csv','a')
+    for acceptedUser in acceptList:
+        acceptFile.write(acceptedUser[3] + '\n')
+    for rejectedUser in rejectList:
+        rejectFile.write(rejectedUser[3] + '\n')
+    wFile.write(newworker)
+    rFile.write(newresult)
+    acceptFile.close()
+    rejectFile.close()
+    wFile.close()
+    rFile.close()
+
+def checkUserUseful():
     t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
     workerInfo = readCsv("Data/MTurk/worker_info.csv")
     resultInfo = readCsv("Data/MTurk/result_info.csv")
@@ -224,4 +297,4 @@ print(b)
 #print(str(datetime.datetime.now())[11:13])
 #print(int("08"))
 #print(dateToDateStr(dateStrToDate("Tue Feb 20 00:00:00 +0000 2018")-datetime.timedelta(1)))
-print(int("0"))
+#print(int("0"))
