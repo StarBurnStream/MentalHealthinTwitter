@@ -1,0 +1,148 @@
+Date,Day of week,Number of tweets,Number of tweets in the morning(8-12),Number of tweets in the afternoon(12-18),Number of tweets in the night(18-8),Main tweeting time,Number of words,Number of urls contained,Number of tweets with ?,Number of tweets with !,Number of user mentioned,Number of reply
+2017-10-01,Sunday,7,0,5,2,Afternoon ,130,1,1,1,0,1
+2017-10-02,Monday,2,1,0,1,Morning Night,26,1,0,1,1,0
+2017-10-03,Tuesday,4,1,0,3,Night,65,3,0,3,2,0
+2017-10-04,Wednesday,13,2,3,8,Night,265,4,0,4,12,0
+2017-10-05,Thursday,10,9,0,1,Morning ,190,4,0,4,12,0
+2017-10-06,Friday,3,0,0,3,Night,51,1,0,1,4,0
+2017-10-07,Saturday,12,2,5,5,Afternoon Night,233,2,2,2,5,0
+2017-10-08,Sunday,12,0,5,6,Night,208,2,0,2,5,0
+2017-10-09,Monday,3,2,0,1,Morning ,55,1,0,1,1,0
+2017-10-10,Tuesday,10,4,3,3,Morning ,200,3,1,3,6,0
+2017-10-11,Wednesday,16,5,2,7,Night,287,3,1,3,5,0
+2017-10-12,Thursday,13,4,2,5,Night,182,4,0,4,5,0
+2017-10-13,Friday,15,5,4,4,Morning ,221,7,0,7,3,0
+2017-10-14,Saturday,16,5,0,9,Night,283,2,0,2,18,0
+2017-10-15,Sunday,2,0,2,0,Afternoon ,48,0,0,0,1,0
+2017-10-16,Monday,9,0,6,3,Afternoon ,185,2,1,2,4,1
+2017-10-17,Tuesday,10,1,3,5,Night,127,6,0,6,5,0
+2017-10-18,Wednesday,19,6,3,8,Night,316,9,1,9,6,0
+2017-10-19,Thursday,7,3,2,2,Morning ,130,1,2,1,7,0
+2017-10-20,Friday,16,3,0,8,Night,204,5,0,5,7,0
+2017-10-21,Saturday,12,1,6,5,Afternoon ,231,3,1,3,1,0
+2017-10-22,Sunday,5,1,2,2,Afternoon Night,94,0,0,0,1,0
+2017-10-23,Monday,4,2,1,1,Morning ,90,1,0,1,0,0
+2017-10-24,Tuesday,8,0,6,2,Afternoon ,167,1,0,1,0,0
+2017-10-25,Wednesday,15,4,4,5,Night,235,5,0,5,8,0
+2017-10-26,Thursday,13,0,7,4,Afternoon ,152,6,0,6,3,0
+2017-10-27,Friday,16,5,4,5,Morning Night,225,6,0,6,9,0
+2017-10-28,Saturday,14,0,3,8,Night,175,4,0,4,0,2
+2017-10-29,Sunday,6,0,6,0,Afternoon ,137,0,2,0,0,0
+2017-10-30,Monday,4,2,2,0,Morning Afternoon ,55,0,2,0,1,0
+2017-10-31,Tuesday,19,0,9,6,Afternoon ,260,6,0,6,2,0
+2017-11-01,Wednesday,15,3,3,9,Night,277,4,0,4,10,2
+2017-11-02,Thursday,14,2,1,11,Night,259,8,0,8,4,0
+2017-11-03,Friday,20,6,8,6,Afternoon ,406,1,1,1,3,0
+2017-11-04,Saturday,9,0,3,2,Afternoon ,98,2,0,2,4,0
+2017-11-05,Sunday,6,0,0,6,Night,105,5,0,5,1,0
+2017-11-06,Monday,7,0,1,6,Night,121,2,0,2,0,1
+2017-11-07,Tuesday,16,6,1,3,Morning ,164,4,0,4,5,2
+2017-11-08,Wednesday,14,0,3,9,Night,220,11,0,11,1,0
+2017-11-09,Thursday,4,0,1,3,Night,84,4,0,4,0,0
+2017-11-10,Friday,9,5,1,2,Morning ,154,7,0,7,1,0
+2017-11-11,Saturday,5,0,2,2,Afternoon Night,72,2,0,2,0,0
+2017-11-12,Sunday,7,2,1,4,Night,126,7,1,7,0,0
+2017-11-13,Monday,4,0,4,0,Afternoon ,93,2,0,2,0,0
+2017-11-14,Tuesday,10,2,1,5,Night,152,5,0,5,2,0
+2017-11-15,Wednesday,18,9,4,1,Morning ,247,3,1,3,13,0
+2017-11-16,Thursday,7,2,1,4,Night,131,2,1,2,0,0
+2017-11-17,Friday,7,2,1,4,Night,156,2,2,2,1,0
+2017-11-18,Saturday,4,0,3,1,Afternoon ,68,4,0,4,3,0
+2017-11-19,Sunday,4,0,1,3,Night,86,4,0,4,0,1
+2017-11-20,Monday,4,2,0,2,Morning Night,82,3,0,3,2,0
+2017-11-21,Tuesday,2,0,0,2,Night,38,2,0,2,1,0
+2017-11-22,Wednesday,9,5,1,3,Morning ,179,7,1,7,6,0
+2017-11-23,Thursday,8,3,2,3,Morning Night,100,6,0,6,2,2
+2017-11-24,Friday,10,1,3,6,Night,169,9,0,9,8,0
+2017-11-25,Saturday,7,0,0,5,Night,92,5,0,5,3,0
+2017-11-26,Sunday,3,0,2,1,Afternoon ,67,3,0,3,0,0
+2017-11-27,Monday,4,0,3,1,Afternoon ,77,4,0,4,0,0
+2017-11-28,Tuesday,15,0,9,6,Afternoon ,251,13,0,13,14,0
+2017-11-29,Wednesday,18,3,5,8,Night,275,13,0,13,3,0
+2017-11-30,Thursday,17,0,5,9,Night,239,12,1,12,5,0
+2017-12-01,Friday,11,3,1,5,Night,179,8,0,8,1,0
+2017-12-02,Saturday,4,0,2,2,Afternoon Night,82,4,0,4,0,0
+2017-12-03,Sunday,15,4,6,4,Afternoon ,233,10,1,10,6,0
+2017-12-04,Monday,4,1,3,0,Afternoon ,80,3,0,3,1,0
+2017-12-05,Tuesday,4,0,1,1,Afternoon Night,33,2,0,2,0,0
+2017-12-06,Wednesday,6,0,3,2,Afternoon ,74,3,0,3,2,0
+2017-12-07,Thursday,8,0,5,3,Afternoon ,132,5,0,5,4,0
+2017-12-08,Friday,8,0,4,4,Afternoon Night,125,8,0,8,2,0
+2017-12-09,Saturday,15,0,5,8,Night,254,12,1,12,7,0
+2017-12-10,Sunday,4,0,2,2,Afternoon Night,79,4,0,4,0,0
+2017-12-11,Monday,1,0,1,0,Afternoon ,23,1,0,1,1,0
+2017-12-12,Tuesday,5,0,4,1,Afternoon ,101,5,0,5,0,0
+2017-12-13,Wednesday,5,1,2,2,Afternoon Night,93,4,0,4,0,0
+2017-12-14,Thursday,7,0,2,5,Night,140,5,0,5,3,0
+2017-12-15,Friday,6,0,2,2,Afternoon Night,64,4,0,4,0,0
+2017-12-16,Saturday,10,0,1,7,Night,127,5,0,5,4,0
+2017-12-17,Sunday,2,0,1,1,Afternoon Night,43,2,0,2,0,0
+2017-12-18,Monday,13,2,0,11,Night,215,11,0,11,1,0
+2017-12-19,Tuesday,5,2,1,2,Morning Night,96,4,0,4,1,1
+2017-12-20,Wednesday,7,0,3,3,Afternoon Night,85,6,0,6,1,1
+2017-12-21,Thursday,5,0,4,1,Afternoon ,92,4,1,4,2,0
+2017-12-22,Friday,11,0,7,4,Afternoon ,214,8,0,8,0,0
+2017-12-23,Saturday,6,0,0,6,Night,92,4,1,4,2,0
+2017-12-24,Sunday,4,0,3,1,Afternoon ,68,4,0,4,3,0
+2017-12-25,Monday,5,0,1,4,Night,77,4,0,4,1,0
+2017-12-26,Tuesday,3,1,1,1,Morning Afternoon Night,64,3,0,3,1,0
+2017-12-27,Wednesday,1,0,0,1,Night,24,1,0,1,0,0
+2017-12-28,Thursday,14,0,3,8,Night,161,9,0,9,8,0
+2017-12-29,Friday,19,0,7,1,Afternoon ,169,4,1,4,7,0
+2017-12-30,Saturday,6,0,0,6,Night,127,6,0,6,0,0
+2017-12-31,Sunday,9,0,3,6,Night,165,8,0,8,1,0
+2018-01-01,Monday,3,0,3,0,Afternoon ,65,2,0,2,0,1
+2018-01-02,Tuesday,13,0,9,4,Afternoon ,250,12,0,12,0,1
+2018-01-03,Wednesday,4,0,1,3,Night,87,4,0,4,0,0
+2018-01-04,Thursday,10,4,1,5,Night,168,8,0,8,0,0
+2018-01-05,Friday,6,1,2,3,Night,103,5,0,5,0,0
+2018-01-06,Saturday,7,2,3,2,Afternoon ,127,7,0,7,0,0
+2018-01-07,Sunday,5,0,3,2,Afternoon ,107,5,0,5,0,0
+2018-01-08,Monday,7,0,1,6,Night,136,7,0,7,1,1
+2018-01-09,Tuesday,5,0,1,4,Night,90,5,0,5,1,0
+2018-01-10,Wednesday,10,0,3,7,Night,201,9,0,9,4,0
+2018-01-11,Thursday,8,2,4,2,Afternoon ,144,6,0,6,1,1
+2018-01-12,Friday,14,1,6,7,Night,280,12,0,12,1,0
+2018-01-13,Saturday,5,0,4,1,Afternoon ,91,3,0,3,0,0
+2018-01-14,Sunday,14,0,7,4,Afternoon ,206,7,0,7,6,0
+2018-01-15,Monday,4,0,3,1,Afternoon ,88,3,0,3,1,0
+2018-01-16,Tuesday,17,0,5,12,Night,313,9,0,9,12,1
+2018-01-17,Wednesday,5,0,1,4,Night,85,4,0,4,1,0
+2018-01-18,Thursday,13,2,4,6,Night,228,9,0,9,0,0
+2018-01-19,Friday,7,0,3,3,Afternoon Night,107,6,0,6,3,0
+2018-01-20,Saturday,8,4,1,3,Morning ,142,5,0,5,0,0
+2018-01-21,Sunday,9,0,2,7,Night,169,2,0,2,13,0
+2018-01-22,Monday,4,0,3,1,Afternoon ,67,2,0,2,1,0
+2018-01-23,Tuesday,5,2,2,1,Morning Afternoon ,111,5,0,5,0,1
+2018-01-24,Wednesday,5,1,0,4,Night,91,4,1,4,1,0
+2018-01-25,Thursday,4,0,1,3,Night,75,4,0,4,2,0
+2018-01-26,Friday,7,3,3,1,Morning Afternoon ,115,7,0,7,4,0
+2018-01-27,Saturday,3,1,0,2,Night,59,3,0,3,1,0
+2018-01-28,Sunday,4,0,2,2,Afternoon Night,86,3,0,3,0,0
+2018-01-29,Monday,1,0,0,1,Night,10,1,0,1,1,0
+2018-01-31,Wednesday,2,0,0,1,Night,6,1,0,1,0,0
+2018-02-01,Thursday,3,2,1,0,Morning ,59,3,0,3,0,0
+2018-02-02,Friday,6,2,0,4,Night,113,6,0,6,3,0
+2018-02-03,Saturday,4,0,4,0,Afternoon ,50,4,0,4,2,0
+2018-02-04,Sunday,4,0,1,3,Night,81,4,0,4,0,0
+2018-02-05,Monday,7,0,5,2,Afternoon ,135,5,0,5,1,0
+2018-02-06,Tuesday,5,0,4,1,Afternoon ,96,4,0,4,2,0
+2018-02-07,Wednesday,7,0,2,5,Night,114,6,0,6,4,0
+2018-02-08,Thursday,5,1,1,3,Night,98,4,0,4,0,0
+2018-02-09,Friday,4,0,3,1,Afternoon ,84,4,0,4,0,0
+2018-02-10,Saturday,9,0,4,5,Night,169,8,0,8,2,1
+2018-02-11,Sunday,4,0,0,4,Night,81,4,0,4,1,0
+2018-02-12,Monday,3,0,2,1,Afternoon ,65,3,0,3,1,0
+2018-02-13,Tuesday,2,2,0,0,Morning ,41,2,0,2,0,0
+2018-02-14,Wednesday,4,0,0,4,Night,78,3,0,3,0,0
+2018-02-15,Thursday,7,0,3,4,Night,123,6,0,6,3,2
+2018-02-16,Friday,3,0,2,1,Afternoon ,60,2,0,2,0,0
+2018-02-17,Saturday,8,0,0,8,Night,165,7,0,7,1,0
+2018-02-18,Sunday,12,0,9,3,Afternoon ,235,11,0,11,2,0
+2018-02-19,Monday,3,0,1,2,Night,49,1,1,1,0,1
+2018-02-20,Tuesday,13,0,10,3,Afternoon ,251,11,0,11,3,0
+2018-02-21,Wednesday,7,0,2,5,Night,118,5,0,5,5,1
+2018-02-22,Thursday,10,0,8,2,Afternoon ,204,10,0,10,3,0
+2018-02-23,Friday,10,1,6,3,Afternoon ,177,6,0,6,5,0
+2018-02-24,Saturday,10,0,2,8,Night,185,8,0,8,3,0
+2018-02-25,Sunday,6,0,0,6,Night,97,2,0,2,11,0

@@ -1,0 +1,768 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "gqse-2qk8",
+      "name" : "Colorado County Seats",
+      "attribution" : "Wikipedia",
+      "attributionLink" : "http://en.wikipedia.org/wiki/List_of_counties_in_Colorado",
+      "averageRating" : 0,
+      "category" : "County",
+      "createdAt" : 1336749770,
+      "description" : "Colorado's counties and their county seat along with EPA FIPS codes.",
+      "displayType" : "table",
+      "downloadCount" : 656,
+      "hideFromCatalog" : false,
+      "hideFromDataJson" : false,
+      "indexUpdatedAt" : 1418852433,
+      "newBackend" : false,
+      "numberOfComments" : 1,
+      "oid" : 4680501,
+      "provenance" : "official",
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1375137348,
+      "publicationGroup" : 338590,
+      "publicationStage" : "published",
+      "rowClass" : "",
+      "rowsUpdatedAt" : 1375137348,
+      "rowsUpdatedBy" : "xsfc-3vjv",
+      "tableId" : 1007090,
+      "totalTimesRated" : 0,
+      "viewCount" : 2075,
+      "viewLastModified" : 1418852419,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { },
+        "flags" : [ "hidden" ]
+      }, {
+        "id" : 85514543,
+        "name" : "County",
+        "dataTypeName" : "text",
+        "fieldName" : "county",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 2834849,
+        "width" : 172,
+        "cachedContents" : {
+          "non_null" : 64,
+          "largest" : "Yuma",
+          "null" : 0,
+          "top" : [ {
+            "item" : "Moffat",
+            "count" : 20
+          }, {
+            "item" : "Montezuma",
+            "count" : 19
+          }, {
+            "item" : "Montrose",
+            "count" : 18
+          }, {
+            "item" : "Morgan",
+            "count" : 17
+          }, {
+            "item" : "Otero",
+            "count" : 16
+          }, {
+            "item" : "Ouray",
+            "count" : 15
+          }, {
+            "item" : "Park",
+            "count" : 14
+          }, {
+            "item" : "Phillips",
+            "count" : 13
+          }, {
+            "item" : "Pitkin",
+            "count" : 12
+          }, {
+            "item" : "Prowers",
+            "count" : 11
+          }, {
+            "item" : "Pueblo",
+            "count" : 10
+          }, {
+            "item" : "Rio Blanco",
+            "count" : 9
+          }, {
+            "item" : "Rio Grande",
+            "count" : 8
+          }, {
+            "item" : "Routt",
+            "count" : 7
+          }, {
+            "item" : "Saguache",
+            "count" : 6
+          }, {
+            "item" : "San Juan",
+            "count" : 5
+          }, {
+            "item" : "San Miguel",
+            "count" : 4
+          }, {
+            "item" : "Sedgwick",
+            "count" : 3
+          }, {
+            "item" : "Summit",
+            "count" : 2
+          }, {
+            "item" : "Teller",
+            "count" : 1
+          } ],
+          "smallest" : "Adams"
+        },
+        "format" : { }
+      }, {
+        "id" : 85514544,
+        "name" : "FIPS Code",
+        "dataTypeName" : "text",
+        "fieldName" : "fips_code",
+        "position" : 3,
+        "renderTypeName" : "text",
+        "tableColumnId" : 2834850,
+        "width" : 208,
+        "cachedContents" : {
+          "non_null" : 64,
+          "largest" : "125",
+          "null" : 0,
+          "top" : [ {
+            "item" : "081",
+            "count" : 20
+          }, {
+            "item" : "083",
+            "count" : 19
+          }, {
+            "item" : "085",
+            "count" : 18
+          }, {
+            "item" : "087",
+            "count" : 17
+          }, {
+            "item" : "089",
+            "count" : 16
+          }, {
+            "item" : "091",
+            "count" : 15
+          }, {
+            "item" : "093",
+            "count" : 14
+          }, {
+            "item" : "095",
+            "count" : 13
+          }, {
+            "item" : "097",
+            "count" : 12
+          }, {
+            "item" : "099",
+            "count" : 11
+          }, {
+            "item" : "101",
+            "count" : 10
+          }, {
+            "item" : "103",
+            "count" : 9
+          }, {
+            "item" : "105",
+            "count" : 8
+          }, {
+            "item" : "107",
+            "count" : 7
+          }, {
+            "item" : "109",
+            "count" : 6
+          }, {
+            "item" : "111",
+            "count" : 5
+          }, {
+            "item" : "113",
+            "count" : 4
+          }, {
+            "item" : "115",
+            "count" : 3
+          }, {
+            "item" : "117",
+            "count" : 2
+          }, {
+            "item" : "119",
+            "count" : 1
+          } ],
+          "smallest" : "001"
+        },
+        "format" : { }
+      }, {
+        "id" : 85514545,
+        "name" : "FIPS State and County Code",
+        "dataTypeName" : "text",
+        "fieldName" : "fips_state_and_county_code",
+        "position" : 4,
+        "renderTypeName" : "text",
+        "tableColumnId" : 2834851,
+        "width" : 412,
+        "cachedContents" : {
+          "non_null" : 64,
+          "largest" : "08125",
+          "null" : 0,
+          "top" : [ {
+            "item" : "08081",
+            "count" : 20
+          }, {
+            "item" : "08083",
+            "count" : 19
+          }, {
+            "item" : "08085",
+            "count" : 18
+          }, {
+            "item" : "08087",
+            "count" : 17
+          }, {
+            "item" : "08089",
+            "count" : 16
+          }, {
+            "item" : "08091",
+            "count" : 15
+          }, {
+            "item" : "08093",
+            "count" : 14
+          }, {
+            "item" : "08095",
+            "count" : 13
+          }, {
+            "item" : "08097",
+            "count" : 12
+          }, {
+            "item" : "08099",
+            "count" : 11
+          }, {
+            "item" : "08101",
+            "count" : 10
+          }, {
+            "item" : "08103",
+            "count" : 9
+          }, {
+            "item" : "08105",
+            "count" : 8
+          }, {
+            "item" : "08107",
+            "count" : 7
+          }, {
+            "item" : "08109",
+            "count" : 6
+          }, {
+            "item" : "08111",
+            "count" : 5
+          }, {
+            "item" : "08113",
+            "count" : 4
+          }, {
+            "item" : "08115",
+            "count" : 3
+          }, {
+            "item" : "08117",
+            "count" : 2
+          }, {
+            "item" : "08119",
+            "count" : 1
+          } ],
+          "smallest" : "08001"
+        },
+        "format" : { }
+      }, {
+        "id" : 85514546,
+        "name" : "County Seat",
+        "dataTypeName" : "text",
+        "fieldName" : "county_seat",
+        "position" : 5,
+        "renderTypeName" : "text",
+        "tableColumnId" : 2834852,
+        "width" : 232,
+        "cachedContents" : {
+          "non_null" : 64,
+          "largest" : "Wray",
+          "null" : 0,
+          "top" : [ {
+            "item" : "Craig",
+            "count" : 20
+          }, {
+            "item" : "Cortez",
+            "count" : 19
+          }, {
+            "item" : "Montrose",
+            "count" : 18
+          }, {
+            "item" : "Fort Morgan",
+            "count" : 17
+          }, {
+            "item" : "La Junta",
+            "count" : 16
+          }, {
+            "item" : "Ouray",
+            "count" : 15
+          }, {
+            "item" : "Fairplay",
+            "count" : 14
+          }, {
+            "item" : "Holyoke",
+            "count" : 13
+          }, {
+            "item" : "Aspen",
+            "count" : 12
+          }, {
+            "item" : "Lamar",
+            "count" : 11
+          }, {
+            "item" : "Pueblo",
+            "count" : 10
+          }, {
+            "item" : "Meeker",
+            "count" : 9
+          }, {
+            "item" : "Del Norte",
+            "count" : 8
+          }, {
+            "item" : "Steamboat Springs",
+            "count" : 7
+          }, {
+            "item" : "Saguache",
+            "count" : 6
+          }, {
+            "item" : "Silverton",
+            "count" : 5
+          }, {
+            "item" : "Telluride",
+            "count" : 4
+          }, {
+            "item" : "Julesburg",
+            "count" : 3
+          }, {
+            "item" : "Breckenridge",
+            "count" : 2
+          }, {
+            "item" : "Cripple Creek",
+            "count" : 1
+          } ],
+          "smallest" : "Akron"
+        },
+        "format" : { }
+      }, {
+        "id" : 85514547,
+        "name" : "Established",
+        "dataTypeName" : "text",
+        "fieldName" : "established",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 2834853,
+        "width" : 232,
+        "cachedContents" : {
+          "non_null" : 64,
+          "largest" : "2001-11-15",
+          "null" : 0,
+          "top" : [ {
+            "item" : "1902-11-15",
+            "count" : 20
+          }, {
+            "item" : "1913-03-08",
+            "count" : 19
+          }, {
+            "item" : "1861-11-01",
+            "count" : 18
+          }, {
+            "item" : "1885-04-14",
+            "count" : 17
+          }, {
+            "item" : "1889-04-16",
+            "count" : 16
+          }, {
+            "item" : "1870-02-11",
+            "count" : 15
+          }, {
+            "item" : "2001-11-15",
+            "count" : 14
+          }, {
+            "item" : "1879-02-10",
+            "count" : 13
+          }, {
+            "item" : "1889-03-25",
+            "count" : 12
+          }, {
+            "item" : "1911-05-29",
+            "count" : 11
+          }, {
+            "item" : "1877-03-09",
+            "count" : 10
+          }, {
+            "item" : "1883-02-11",
+            "count" : 9
+          }, {
+            "item" : "1881-03-04",
+            "count" : 8
+          }, {
+            "item" : "1874-02-02",
+            "count" : 7
+          }, {
+            "item" : "1883-02-10",
+            "count" : 6
+          }, {
+            "item" : "1874-02-10",
+            "count" : 5
+          }, {
+            "item" : "1909-05-05",
+            "count" : 4
+          }, {
+            "item" : "1889-04-11",
+            "count" : 3
+          }, {
+            "item" : "1866-02-09",
+            "count" : 2
+          }, {
+            "item" : "1887-02-25",
+            "count" : 1
+          } ],
+          "smallest" : "1861-11-01"
+        },
+        "format" : { }
+      }, {
+        "id" : 85514548,
+        "name" : "Location",
+        "dataTypeName" : "location",
+        "fieldName" : "location",
+        "position" : 7,
+        "renderTypeName" : "location",
+        "tableColumnId" : 2834854,
+        "width" : 196,
+        "cachedContents" : {
+          "non_null" : 64,
+          "largest" : {
+            "latitude" : "40.07894999964293",
+            "human_address" : "{\"address\":\"\",\"city\":\"Wray\",\"state\":\"CO\",\"zip\":\"\"}",
+            "longitude" : "-102.22008999995336"
+          },
+          "null" : 0,
+          "top" : [ {
+            "item" : {
+              "latitude" : "40.5142299998148",
+              "human_address" : "{\"address\":\"\",\"city\":\"Craig\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-107.5478699997006"
+            },
+            "count" : 20
+          }, {
+            "item" : {
+              "latitude" : "37.35466000005914",
+              "human_address" : "{\"address\":\"\",\"city\":\"Cortez\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-108.55366000030864"
+            },
+            "count" : 19
+          }, {
+            "item" : {
+              "latitude" : "38.478640000236",
+              "human_address" : "{\"address\":\"\",\"city\":\"Montrose\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-107.8776199995632"
+            },
+            "count" : 18
+          }, {
+            "item" : {
+              "latitude" : "40.2546700001206",
+              "human_address" : "{\"address\":\"\",\"city\":\"Fort Morgan\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-103.80148000010178"
+            },
+            "count" : 17
+          }, {
+            "item" : {
+              "latitude" : "37.987450000117576",
+              "human_address" : "{\"address\":\"\",\"city\":\"La Junta\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-103.54311999998788"
+            },
+            "count" : 16
+          }, {
+            "item" : {
+              "latitude" : "38.02443000034441",
+              "human_address" : "{\"address\":\"\",\"city\":\"Ouray\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-107.67146000007881"
+            },
+            "count" : 15
+          }, {
+            "item" : {
+              "latitude" : "39.223500000025126",
+              "human_address" : "{\"address\":\"\",\"city\":\"Fairplay\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-105.99986000013877"
+            },
+            "count" : 14
+          }, {
+            "item" : {
+              "latitude" : "40.58507000028044",
+              "human_address" : "{\"address\":\"\",\"city\":\"Holyoke\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-102.30224999993737"
+            },
+            "count" : 13
+          }, {
+            "item" : {
+              "latitude" : "39.190020000223",
+              "human_address" : "{\"address\":\"\",\"city\":\"Aspen\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-106.818179999807"
+            },
+            "count" : 12
+          }, {
+            "item" : {
+              "latitude" : "38.08767999973236",
+              "human_address" : "{\"address\":\"\",\"city\":\"Lamar\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-102.61916000033358"
+            },
+            "count" : 11
+          }, {
+            "item" : {
+              "latitude" : "38.26385999983927",
+              "human_address" : "{\"address\":\"\",\"city\":\"Pueblo\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-104.61236999977552"
+            },
+            "count" : 10
+          }, {
+            "item" : {
+              "latitude" : "40.037379999987195",
+              "human_address" : "{\"address\":\"\",\"city\":\"Meeker\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-107.90716000023366"
+            },
+            "count" : 9
+          }, {
+            "item" : {
+              "latitude" : "37.67868999964395",
+              "human_address" : "{\"address\":\"\",\"city\":\"Del Norte\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-106.35257000030509"
+            },
+            "count" : 8
+          }, {
+            "item" : {
+              "latitude" : "40.48785000007763",
+              "human_address" : "{\"address\":\"\",\"city\":\"Steamboat Springs\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-106.83638999959868"
+            },
+            "count" : 7
+          }, {
+            "item" : {
+              "latitude" : "38.0887600000741",
+              "human_address" : "{\"address\":\"\",\"city\":\"Saguache\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-106.1411199996881"
+            },
+            "count" : 6
+          }, {
+            "item" : {
+              "latitude" : "37.805130000149575",
+              "human_address" : "{\"address\":\"\",\"city\":\"Silverton\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-107.6709699999654"
+            },
+            "count" : 5
+          }, {
+            "item" : {
+              "latitude" : "37.938099999615474",
+              "human_address" : "{\"address\":\"\",\"city\":\"Telluride\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-107.81094999984248"
+            },
+            "count" : 4
+          }, {
+            "item" : {
+              "latitude" : "40.986200000329916",
+              "human_address" : "{\"address\":\"\",\"city\":\"Julesburg\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-102.26286000008878"
+            },
+            "count" : 3
+          }, {
+            "item" : {
+              "latitude" : "39.48219000006861",
+              "human_address" : "{\"address\":\"\",\"city\":\"Breckenridge\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-106.04717999965709"
+            },
+            "count" : 2
+          }, {
+            "item" : {
+              "latitude" : "38.74751000028647",
+              "human_address" : "{\"address\":\"\",\"city\":\"Cripple Creek\",\"state\":\"CO\",\"zip\":\"\"}",
+              "longitude" : "-105.17941999983299"
+            },
+            "count" : 1
+          } ],
+          "smallest" : {
+            "latitude" : "40.159139999611455",
+            "human_address" : "{\"address\":\"\",\"city\":\"Akron\",\"state\":\"CO\",\"zip\":\"\"}",
+            "longitude" : "-103.21205999996886"
+          }
+        },
+        "format" : { },
+        "subColumnTypes" : [ "human_address", "latitude", "longitude", "machine_address", "needs_recoding" ]
+      } ],
+      "grants" : [ {
+        "inherited" : false,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "custom_fields" : {
+          "Dataset Summary" : {
+            "Source" : "CDPHE, CDPA",
+            "Purpose" : "Provides a list of geocoded county seats to be combined with other datasets to allow for county-level mapping of various demographic values.",
+            "Frequency" : "None Planned",
+            "Progress" : "Complete"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "rdfSubject" : "0",
+        "rowIdentifier" : "0",
+        "rdfClass" : ""
+      },
+      "owner" : {
+        "id" : "v8v9-9c73",
+        "displayName" : "David Main",
+        "profileImageUrlLarge" : "/api/users/v8v9-9c73/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/v8v9-9c73/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/v8v9-9c73/profile_images/TINY",
+        "screenName" : "David Main"
+      },
+      "query" : { },
+      "rights" : [ "read" ],
+      "tableAuthor" : {
+        "id" : "v8v9-9c73",
+        "displayName" : "David Main",
+        "profileImageUrlLarge" : "/api/users/v8v9-9c73/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/v8v9-9c73/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/v8v9-9c73/profile_images/TINY",
+        "screenName" : "David Main"
+      },
+      "tags" : [ "county seat", "fips" ],
+      "flags" : [ "default", "restorable", "restorePossibleForType" ]
+    }
+  },
+  "data" : [ [ 40, "00EA9ABE-EE42-4781-A6E4-D31A911DC8EB", 40, 1336724570, "404480", 1336724574, "404480", "{\n}", "Mesa", "077", "08077", "Grand Junction", "1883-02-14", [ "{\"address\":\"\",\"city\":\"Grand Junction\",\"state\":\"CO\",\"zip\":\"\"}", "39.06878999985878", "-108.5644499996676", null, false ] ]
+, [ 53, "01A8993B-068F-4180-A039-4226DDD272EE", 53, 1336724570, "404480", 1336724574, "404480", "{\n}", "Rio Blanco", "103", "08103", "Meeker", "1889-03-25", [ "{\"address\":\"\",\"city\":\"Meeker\",\"state\":\"CO\",\"zip\":\"\"}", "40.037379999987195", "-107.90716000023366", null, false ] ]
+, [ 36, "0366B0CD-2FF1-43AD-9B9C-63832C9AF760", 36, 1336724570, "404480", 1336724574, "404480", "{\n}", "Larimer", "069", "08069", "Fort Collins", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Fort Collins\",\"state\":\"CO\",\"zip\":\"\"}", "40.581469999740875", "-105.07625999999885", null, false ] ]
+, [ 61, "03D534BD-EF18-4E8C-9463-77049E26FB56", 61, 1336724570, "404480", 1336724574, "404480", "{\n}", "Teller", "119", "08119", "Cripple Creek", "1899-03-23", [ "{\"address\":\"\",\"city\":\"Cripple Creek\",\"state\":\"CO\",\"zip\":\"\"}", "38.74751000028647", "-105.17941999983299", null, false ] ]
+, [ 27, "06BF2BD2-5322-49CB-A90A-2B9BE86061EF", 27, 1336724570, "404480", 1336724574, "404480", "{\n}", "Gunnison", "051", "08051", "Gunnison", "1877-03-09", [ "{\"address\":\"\",\"city\":\"Gunnison\",\"state\":\"CO\",\"zip\":\"\"}", "38.54493999998118", "-106.92685000012727", null, false ] ]
+, [ 19, "0AC4ADBC-E6FF-4303-996F-DF643EA6A1DF", 19, 1336724570, "404480", 1336724574, "404480", "{\n}", "Douglas", "035", "08035", "Castle Rock", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Castle Rock\",\"state\":\"CO\",\"zip\":\"\"}", "39.375910000246506", "-104.85995999965411", null, false ] ]
+, [ 3, "0C0CC819-1605-4018-B9D7-1A6566E867FF", 3, 1336724570, "404480", 1336724574, "404480", "{\n}", "Arapahoe", "005", "08005", "Littleton", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Littleton\",\"state\":\"CO\",\"zip\":\"\"}", "39.61689999973538", "-105.01452000009778", null, false ] ]
+, [ 31, "15B47D9E-2676-457B-8694-3C9CDE958A6E", 31, 1336724570, "404480", 1336724574, "404480", "{\n}", "Jefferson", "059", "08059", "Golden", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Golden\",\"state\":\"CO\",\"zip\":\"\"}", "39.756649999797844", "-105.22495000044199", null, false ] ]
+, [ 17, "18C26371-9449-4BA5-82DB-1348CE966684", 17, 1336724570, "404480", 1336724574, "404480", "{\n}", "Denver", "031", "08031", "Denver", "1902-11-15", [ "{\"address\":\"\",\"city\":\"Denver\",\"state\":\"CO\",\"zip\":\"\"}", "39.740009999562005", "-104.99225999969906", null, false ] ]
+, [ 44, "1CE41C67-D863-4110-9909-71B467E4AB33", 44, 1336724570, "404480", 1336724574, "404480", "{\n}", "Montrose", "085", "08085", "Montrose", "1883-02-11", [ "{\"address\":\"\",\"city\":\"Montrose\",\"state\":\"CO\",\"zip\":\"\"}", "38.478640000236", "-107.8776199995632", null, false ] ]
+, [ 39, "1FB4E7F8-55A8-4052-82B6-D3E21D5D8FE8", 39, 1336724570, "404480", 1336724574, "404480", "{\n}", "Logan", "075", "08075", "Sterling", "1887-02-25", [ "{\"address\":\"\",\"city\":\"Sterling\",\"state\":\"CO\",\"zip\":\"\"}", "40.625940000031164", "-103.20614000036056", null, false ] ]
+, [ 21, "25FE07EE-2951-453D-BACA-57FC3C7B8502", 21, 1336724570, "404480", 1336724574, "404480", "{\n}", "El Paso", "041", "08041", "Colorado Springs", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Colorado Springs\",\"state\":\"CO\",\"zip\":\"\"}", "38.83345000011758", "-104.82181000033108", null, false ] ]
+, [ 10, "285A17FE-6343-4746-A535-54522BEA49B9", 10, 1336724570, "404480", 1336724574, "404480", "{\n}", "Cheyenne", "017", "08017", "Cheyenne Wells", "1889-03-25", [ "{\"address\":\"\",\"city\":\"Cheyenne Wells\",\"state\":\"CO\",\"zip\":\"\"}", "38.819519999848296", "-102.34807999999185", null, false ] ]
+, [ 38, "2A7B1345-8056-45BA-BD4A-5118DF44A0F7", 38, 1336724570, "404480", 1336724574, "404480", "{\n}", "Lincoln", "073", "08073", "Hugo", "1889-04-11", [ "{\"address\":\"\",\"city\":\"Hugo\",\"state\":\"CO\",\"zip\":\"\"}", "39.13448999981381", "-103.47021999985299", null, false ] ]
+, [ 41, "2BD116FE-720F-4607-9BAF-26D3F77936F3", 41, 1336724570, "404480", 1336724575, "404480", "{\n}", "Mineral", "079", "08079", "Creede", "1893-03-27", [ "{\"address\":\"\",\"city\":\"Creede\",\"state\":\"CO\",\"zip\":\"\"}", "37.85123000006462", "-106.92670000040454", null, false ] ]
+, [ 43, "2E8C1DD2-2358-4191-9A75-581408FD0121", 43, 1336724570, "404480", 1336724575, "404480", "{\n}", "Montezuma", "083", "08083", "Cortez", "1889-04-16", [ "{\"address\":\"\",\"city\":\"Cortez\",\"state\":\"CO\",\"zip\":\"\"}", "37.35466000005914", "-108.55366000030864", null, false ] ]
+, [ 25, "300333B9-E0AE-4F59-86E5-805B2AE9E535", 25, 1336724570, "404480", 1336724575, "404480", "{\n}", "Gilpin", "047", "08047", "Central City", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Central City\",\"state\":\"CO\",\"zip\":\"\"}", "39.799060000418876", "-105.51312999974954", null, false ] ]
+, [ 12, "301A46B7-0CF6-44C9-B926-B4F6ED5C9B2C", 12, 1336724570, "404480", 1336724575, "404480", "{\n}", "Conejos", "021", "08021", "Conejos", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Conejos\",\"state\":\"CO\",\"zip\":\"\"}", "37.08849999997517", "-106.02061000015124", null, false ] ]
+, [ 59, "36C87101-A037-44F2-84DD-6750307641E1", 59, 1336724570, "404480", 1336724575, "404480", "{\n}", "Sedgwick", "115", "08115", "Julesburg", "1889-04-09", [ "{\"address\":\"\",\"city\":\"Julesburg\",\"state\":\"CO\",\"zip\":\"\"}", "40.986200000329916", "-102.26286000008878", null, false ] ]
+, [ 50, "38B6819B-7209-402B-B591-FF742C530B1F", 50, 1336724570, "404480", 1336724575, "404480", "{\n}", "Pitkin", "097", "08097", "Aspen", "1881-02-23", [ "{\"address\":\"\",\"city\":\"Aspen\",\"state\":\"CO\",\"zip\":\"\"}", "39.190020000223", "-106.818179999807", null, false ] ]
+, [ 63, "3A46757D-205C-4D01-B762-E42239CB2209", 63, 1336724570, "404480", 1336724575, "404480", "{\n}", "Weld", "123", "08123", "Greeley", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Greeley\",\"state\":\"CO\",\"zip\":\"\"}", "40.423269999610966", "-104.69446000012874", null, false ] ]
+, [ 45, "3F62C895-F581-4BF1-AC91-887D393F54B1", 45, 1336724570, "404480", 1336724575, "404480", "{\n}", "Morgan", "087", "08087", "Fort Morgan", "1889-02-19", [ "{\"address\":\"\",\"city\":\"Fort Morgan\",\"state\":\"CO\",\"zip\":\"\"}", "40.2546700001206", "-103.80148000010178", null, false ] ]
+, [ 15, "40579D2F-A71A-430F-A339-DB5AA11887D2", 15, 1336724570, "404480", 1336724575, "404480", "{\n}", "Custer", "027", "08027", "Westcliffe", "1877-03-09", [ "{\"address\":\"\",\"city\":\"Westcliffe\",\"state\":\"CO\",\"zip\":\"\"}", "38.13602999998466", "-105.46708000034158", null, false ] ]
+, [ 33, "40FC7404-DE44-4326-8B15-C9F62AB574BB", 33, 1336724570, "404480", 1336724575, "404480", "{\n}", "Kit Carson", "063", "08063", "Burlington", "1889-04-11", [ "{\"address\":\"\",\"city\":\"Burlington\",\"state\":\"CO\",\"zip\":\"\"}", "39.30165999990925", "-102.27199999980002", null, false ] ]
+, [ 42, "4324E348-2BF4-483D-BF13-2C8726EAE319", 42, 1336724570, "404480", 1336724575, "404480", "{\n}", "Moffat", "081", "08081", "Craig", "1911-02-27", [ "{\"address\":\"\",\"city\":\"Craig\",\"state\":\"CO\",\"zip\":\"\"}", "40.5142299998148", "-107.5478699997006", null, false ] ]
+, [ 54, "4450A33E-DE6C-4DFF-B6A5-505641ACFE53", 54, 1336724570, "404480", 1336724575, "404480", "{\n}", "Rio Grande", "105", "08105", "Del Norte", "1874-02-10", [ "{\"address\":\"\",\"city\":\"Del Norte\",\"state\":\"CO\",\"zip\":\"\"}", "37.67868999964395", "-106.35257000030509", null, false ] ]
+, [ 20, "45EA524E-98BC-4666-AB21-12BF6DF858EB", 20, 1336724570, "404480", 1336724575, "404480", "{\n}", "Eagle", "037", "08037", "Eagle", "1883-02-11", [ "{\"address\":\"\",\"city\":\"Eagle\",\"state\":\"CO\",\"zip\":\"\"}", "39.655640000186054", "-106.82788000016171", null, false ] ]
+, [ 37, "4A8BA502-5E00-4014-9E7F-9ACB2E5992E8", 37, 1336724570, "404480", 1336724575, "404480", "{\n}", "Las Animas", "071", "08071", "Trinidad", "1866-02-09", [ "{\"address\":\"\",\"city\":\"Trinidad\",\"state\":\"CO\",\"zip\":\"\"}", "37.16772000017801", "-104.50818000010679", null, false ] ]
+, [ 34, "4BE34F7A-DCF4-48D4-B436-774C1960FCFA", 34, 1336724570, "404480", 1336724575, "404480", "{\n}", "La Plata", "067", "08067", "Durango", "1874-02-10", [ "{\"address\":\"\",\"city\":\"Durango\",\"state\":\"CO\",\"zip\":\"\"}", "37.27367000007064", "-107.87929999969509", null, false ] ]
+, [ 16, "503F08D0-7268-4851-B47A-D100C50C529C", 16, 1336724570, "404480", 1336724575, "404480", "{\n}", "Delta", "029", "08029", "Delta", "1883-02-11", [ "{\"address\":\"\",\"city\":\"Delta\",\"state\":\"CO\",\"zip\":\"\"}", "38.74478999985877", "-108.07086999995039", null, false ] ]
+, [ 57, "54056C3B-00E3-41D9-B48B-C5E5B03386A4", 57, 1336724570, "404480", 1336724575, "404480", "{\n}", "San Juan", "111", "08111", "Silverton", "1876-01-31", [ "{\"address\":\"\",\"city\":\"Silverton\",\"state\":\"CO\",\"zip\":\"\"}", "37.805130000149575", "-107.6709699999654", null, false ] ]
+, [ 32, "589958A6-6D4D-46A5-B0A0-A284098F63A5", 32, 1336724570, "404480", 1336724575, "404480", "{\n}", "Kiowa", "061", "08061", "Eads", "1889-04-11", [ "{\"address\":\"\",\"city\":\"Eads\",\"state\":\"CO\",\"zip\":\"\"}", "38.48137000022547", "-102.78578000024669", null, false ] ]
+, [ 11, "5CE0E4D0-9562-45C4-9F6A-89C29A3CE273", 11, 1336724570, "404480", 1336724575, "404480", "{\n}", "Clear Creek", "019", "08019", "Georgetown", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Georgetown\",\"state\":\"CO\",\"zip\":\"\"}", "39.705999999600465", "-105.69583999971604", null, false ] ]
+, [ 47, "5D7B2C3A-9E21-4F1B-BAAF-F966DF5E83D8", 47, 1336724570, "404480", 1336724575, "404480", "{\n}", "Ouray", "091", "08091", "Ouray", "1877-01-18", [ "{\"address\":\"\",\"city\":\"Ouray\",\"state\":\"CO\",\"zip\":\"\"}", "38.02443000034441", "-107.67146000007881", null, false ] ]
+, [ 35, "5F54BA07-6847-4A86-B706-6EE88D621708", 35, 1336724570, "404480", 1336724575, "404480", "{\n}", "Lake", "065", "08065", "Leadville", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Leadville\",\"state\":\"CO\",\"zip\":\"\"}", "39.25077000033542", "-106.29264000023568", null, false ] ]
+, [ 18, "631E49A8-5BC9-4AB1-A0F0-35C50C2115D1", 18, 1336724570, "404480", 1336724575, "404480", "{\n}", "Dolores", "033", "08033", "Dove Creek", "1881-03-04", [ "{\"address\":\"\",\"city\":\"Dove Creek\",\"state\":\"CO\",\"zip\":\"\"}", "37.76375999982429", "-108.90601999962314", null, false ] ]
+, [ 5, "789FB32E-B054-430D-9104-66C52717ACB5", 5, 1336724570, "404480", 1336724575, "404480", "{\n}", "Baca", "009", "08009", "Springfield", "1889-04-16", [ "{\"address\":\"\",\"city\":\"Springfield\",\"state\":\"CO\",\"zip\":\"\"}", "37.413710000016636", "-102.61654999958267", null, false ] ]
+, [ 9, "8543CD63-72BC-484F-AC77-5560138D8D87", 9, 1336724570, "404480", 1336724575, "404480", "{\n}", "Chaffee", "015", "08015", "Salida", "1879-02-10", [ "{\"address\":\"\",\"city\":\"Salida\",\"state\":\"CO\",\"zip\":\"\"}", "38.53662000031295", "-105.99233999959114", null, false ] ]
+, [ 7, "86B19E3A-DFD0-43F8-9EF7-0C4AE791D81C", 7, 1336724570, "404480", 1336724575, "404480", "{\n}", "Boulder", "013", "08013", "Boulder", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Boulder\",\"state\":\"CO\",\"zip\":\"\"}", "40.01574000030092", "-105.27924000032561", null, false ] ]
+, [ 46, "8E1DCA12-2D99-4C21-8A3C-F764E5E06C6C", 46, 1336724570, "404480", 1336724575, "404480", "{\n}", "Otero", "089", "08089", "La Junta", "1889-03-25", [ "{\"address\":\"\",\"city\":\"La Junta\",\"state\":\"CO\",\"zip\":\"\"}", "37.987450000117576", "-103.54311999998788", null, false ] ]
+, [ 26, "97E98D85-1534-4245-B50D-B30FA13A98A5", 26, 1336724570, "404480", 1336724575, "404480", "{\n}", "Grand", "049", "08049", "Hot Sulphur Springs", "1874-02-02", [ "{\"address\":\"\",\"city\":\"Hot Sulphur Springs\",\"state\":\"CO\",\"zip\":\"\"}", "40.07282999980481", "-106.1029100002961", null, false ] ]
+, [ 24, "988376D5-2FFF-4EE0-9977-95E6D5C3E3AB", 24, 1336724570, "404480", 1336724575, "404480", "{\n}", "Garfield", "045", "08045", "Glenwood Springs", "1883-02-10", [ "{\"address\":\"\",\"city\":\"Glenwood Springs\",\"state\":\"CO\",\"zip\":\"\"}", "39.54602999968489", "-107.32369999975504", null, false ] ]
+, [ 1, "9A9D81FD-B7FA-431B-93D1-1E9C0BE67712", 1, 1336724570, "404480", 1336724575, "404480", "{\n}", "Adams", "001", "08001", "Brighton", "1902-11-15", [ "{\"address\":\"\",\"city\":\"Brighton\",\"state\":\"CO\",\"zip\":\"\"}", "39.98668000018205", "-104.81816999974552", null, false ] ]
+, [ 64, "9AF6F9C3-A11C-4067-B231-6700282434E1", 64, 1336724570, "404480", 1336724575, "404480", "{\n}", "Yuma", "125", "08125", "Wray", "1889-03-15", [ "{\"address\":\"\",\"city\":\"Wray\",\"state\":\"CO\",\"zip\":\"\"}", "40.07894999964293", "-102.22008999995336", null, false ] ]
+, [ 62, "9DE2BDE7-3A41-449F-9F27-AF2E9B0F536F", 62, 1336724570, "404480", 1336724575, "404480", "{\n}", "Washington", "121", "08121", "Akron", "1887-02-09", [ "{\"address\":\"\",\"city\":\"Akron\",\"state\":\"CO\",\"zip\":\"\"}", "40.159139999611455", "-103.21205999996886", null, false ] ]
+, [ 8, "A79ED3B9-D18A-432B-87CC-999FE750BA5D", 8, 1336724570, "404480", 1336724575, "404480", "{\n}", "Broomfield", "014", "08014", "Broomfield", "2001-11-15", [ "{\"address\":\"\",\"city\":\"Broomfield\",\"state\":\"CO\",\"zip\":\"\"}", "39.92086000008908", "-105.070579999767", null, false ] ]
+, [ 30, "AE1A8A69-B29B-451B-8747-6C45F3350F09", 30, 1336724570, "404480", 1336724575, "404480", "{\n}", "Jackson", "057", "08057", "Walden", "1909-05-05", [ "{\"address\":\"\",\"city\":\"Walden\",\"state\":\"CO\",\"zip\":\"\"}", "40.730510000136576", "-106.28207999979202", null, false ] ]
+, [ 51, "AE25F4D6-7F90-4411-BB5D-7C2FC8EB13FA", 51, 1336724570, "404480", 1336724575, "404480", "{\n}", "Prowers", "099", "08099", "Lamar", "1889-04-11", [ "{\"address\":\"\",\"city\":\"Lamar\",\"state\":\"CO\",\"zip\":\"\"}", "38.08767999973236", "-102.61916000033358", null, false ] ]
+, [ 14, "B27D55DC-B235-478C-9AF9-A036241658E4", 14, 1336724570, "404480", 1336724575, "404480", "{\n}", "Crowley", "025", "08025", "Ordway", "1911-05-29", [ "{\"address\":\"\",\"city\":\"Ordway\",\"state\":\"CO\",\"zip\":\"\"}", "38.21451999979831", "-103.75045999992892", null, false ] ]
+, [ 6, "BD338279-5A19-428E-A267-556CF9A85C17", 6, 1336724570, "404480", 1336724575, "404480", "{\n}", "Bent", "011", "08011", "Las Animas", "1870-02-11", [ "{\"address\":\"\",\"city\":\"Las Animas\",\"state\":\"CO\",\"zip\":\"\"}", "38.067279999672394", "-103.21996000005379", null, false ] ]
+, [ 28, "C1FE87BD-A1B5-4D1D-80D9-61E293358EF7", 28, 1336724570, "404480", 1336724575, "404480", "{\n}", "Hinsdale", "053", "08053", "Lake City", "1874-02-10", [ "{\"address\":\"\",\"city\":\"Lake City\",\"state\":\"CO\",\"zip\":\"\"}", "38.031669999670896", "-107.31443999990591", null, false ] ]
+, [ 56, "CD3FC949-D02D-4770-BE86-FAA98A1F332C", 56, 1336724570, "404480", 1336724575, "404480", "{\n}", "Saguache", "109", "08109", "Saguache", "1866-12-29", [ "{\"address\":\"\",\"city\":\"Saguache\",\"state\":\"CO\",\"zip\":\"\"}", "38.0887600000741", "-106.1411199996881", null, false ] ]
+, [ 29, "D0563DF2-E549-41AE-9D16-77204F13A8F2", 29, 1336724570, "404480", 1336724575, "404480", "{\n}", "Huerfano", "055", "08055", "Walsenburg", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Walsenburg\",\"state\":\"CO\",\"zip\":\"\"}", "37.625010000011684", "-104.780259999799", null, false ] ]
+, [ 55, "DDB7D875-DDA0-4619-BC0A-A07E047B23C6", 55, 1336724570, "404480", 1336724575, "404480", "{\n}", "Routt", "107", "08107", "Steamboat Springs", "1877-01-29", [ "{\"address\":\"\",\"city\":\"Steamboat Springs\",\"state\":\"CO\",\"zip\":\"\"}", "40.48785000007763", "-106.83638999959868", null, false ] ]
+, [ 48, "DDEC5FD5-0947-47E9-8454-A9F5CE525F54", 48, 1336724570, "404480", 1336724575, "404480", "{\n}", "Park", "093", "08093", "Fairplay", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Fairplay\",\"state\":\"CO\",\"zip\":\"\"}", "39.223500000025126", "-105.99986000013877", null, false ] ]
+, [ 58, "E056A537-5429-4228-8E9C-075BA9BE0CB9", 58, 1336724570, "404480", 1336724575, "404480", "{\n}", "San Miguel", "113", "08113", "Telluride", "1883-03-02", [ "{\"address\":\"\",\"city\":\"Telluride\",\"state\":\"CO\",\"zip\":\"\"}", "37.938099999615474", "-107.81094999984248", null, false ] ]
+, [ 22, "E2AE920F-C24B-4DF3-85BF-DA1369FAD1FC", 22, 1336724570, "404480", 1336724575, "404480", "{\n}", "Elbert", "039", "08039", "Kiowa", "1874-02-02", [ "{\"address\":\"\",\"city\":\"Kiowa\",\"state\":\"CO\",\"zip\":\"\"}", "39.346580000266954", "-104.46228999998334", null, false ] ]
+, [ 13, "E4864156-8B0D-47E0-A11A-1D3A130A434F", 13, 1336724570, "404480", 1336724575, "404480", "{\n}", "Costilla", "023", "08023", "San Luis", "1861-11-01", [ "{\"address\":\"\",\"city\":\"San Luis\",\"state\":\"CO\",\"zip\":\"\"}", "37.199390000148526", "-105.42593999983097", null, false ] ]
+, [ 52, "E93D110C-6AC3-4EAC-9CC5-E81C592F4FD6", 52, 1336724570, "404480", 1336724575, "404480", "{\n}", "Pueblo", "101", "08101", "Pueblo", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Pueblo\",\"state\":\"CO\",\"zip\":\"\"}", "38.26385999983927", "-104.61236999977552", null, false ] ]
+, [ 49, "EA586A17-12D5-49A3-822C-3354CA6E6A1D", 49, 1336724570, "404480", 1336724575, "404480", "{\n}", "Phillips", "095", "08095", "Holyoke", "1889-03-27", [ "{\"address\":\"\",\"city\":\"Holyoke\",\"state\":\"CO\",\"zip\":\"\"}", "40.58507000028044", "-102.30224999993737", null, false ] ]
+, [ 2, "F0052917-F532-41ED-9D35-DD3B666D6758", 2, 1336724570, "404480", 1336724575, "404480", "{\n}", "Alamosa", "003", "08003", "Alamosa", "1913-03-08", [ "{\"address\":\"\",\"city\":\"Alamosa\",\"state\":\"CO\",\"zip\":\"\"}", "37.46818000010711", "-105.87359999984", null, false ] ]
+, [ 4, "F572C450-DEFA-47A3-AF53-BE70D1505239", 4, 1336724570, "404480", 1336724575, "404480", "{\n}", "Archuleta", "007", "08007", "Pagosa Springs", "1885-04-14", [ "{\"address\":\"\",\"city\":\"Pagosa Springs\",\"state\":\"CO\",\"zip\":\"\"}", "37.26749000016355", "-107.01018999966863", null, false ] ]
+, [ 60, "F7226D81-F564-4D08-AFCB-D08528B477FB", 60, 1336724570, "404480", 1336724575, "404480", "{\n}", "Summit", "117", "08117", "Breckenridge", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Breckenridge\",\"state\":\"CO\",\"zip\":\"\"}", "39.48219000006861", "-106.04717999965709", null, false ] ]
+, [ 23, "7F489456-A4D3-4DC8-9A27-60A5F87D3BF4", 23, 1336724570, "404480", 1375112148, "404738", "{}", "Fremont", "043", "08043", "Ca?on City", "1861-11-01", [ "{\"address\":\"\",\"city\":\"Ca&ntilde;on City\",\"state\":\"CO\",\"zip\":\"\"}", "38.442741", "-105.239685", null, false ] ]
+ ]
+}

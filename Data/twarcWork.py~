@@ -1,0 +1,168 @@
+# -*- coding: utf-8 -*-
+"""
+@author: Junjie Jiang
+"""
+
+
+from twarc import Twarc
+import config
+import json
+import Utility
+import os
+import datetime
+
+def getCountySeatData():
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    geocodeDict = Utility.deserialize('ColoradoCountySeatGeocode.json')
+    for countySeat in geocodeDict:
+        print('Analyzing ' + countySeat + ' data...')
+        if not os.path.exists('Data/Colorado/'):
+            os.makedirs('Data/Colorado/')
+        count = 0
+        firstDate = None
+        currentDate = None
+        deltaDate = None
+        outfile = open('Data/Colorado/' + countySeat + '.json', 'a')
+        print('Data/Colorado/' + countySeat + '.json file made.')
+        for tweet in t.search(geocode=geocodeDict[countySeat]):
+            if count == 0:
+                firstDate = Utility.dateStrToDate(tweet["created_at"])
+            count += 1
+            currentDate = Utility.dateStrToDate(tweet["created_at"])
+            deltaDate = Utility.dateMinus(firstDate, currentDate)
+            if deltaDate > 1.5 or count > 150000:
+                break
+            outfile.write(json.dumps(tweet)+"\n")
+        outfile.close()
+        print(countySeat + ' data done!')
+    
+def getRegionData(timePeriod):
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    geocodeDict = Utility.deserialize('Data/ColoradoCountySeatGeocode.json')
+    regionDict = Utility.deserialize('Data/RegionDict.json')
+    if not os.path.exists('Data/ColoradoRegion/'):
+        os.makedirs('Data/ColoradoRegion/')
+    for region in regionDict:
+        count = 0
+        print('Analyzing ' + region + ' region data...')
+        if not os.path.exists('Data/ColoradoRegion/' + region + '.json'):
+            outfile = open('Data/ColoradoRegion/' + region + '.json', 'a')
+            for countySeat in regionDict[region]:
+                print('Analyzing ' + countySeat + ' county data...')
+                for tweet in t.search(geocode=geocodeDict[countySeat]):
+                    if count == 0:
+                        firstDate = Utility.dateStrToDate(tweet["created_at"])
+                        lastDate = firstDate - datetime.timedelta(timePeriod)
+                        count += 1
+                    currentDate = Utility.dateStrToDate(tweet["created_at"])
+                    if currentDate < lastDate:
+                        break
+                    if currentDate <= firstDate:
+                        outfile.write(json.dumps(tweet)+"\n")
+                print(countySeat + ' county data done!')
+            outfile.close()
+        print(region + ' region data done!')
+        
+def getUserData():
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    fileStr = ''
+    count = 0
+    for tweet in t.timeline(screen_name='967375792115146752'):
+        fileStr += json.dumps(tweet)+"\n"
+        count += 1
+    print("count:" + str(count))
+    if fileStr != '':
+        outfile = open("Data/967375792115146752.json","a")
+        outfile.write(fileStr)
+        outfile.close()
+
+def getUserTrainingData(idList):
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+    for user in idList:
+         print(str(idList.index(user)+1) + 'th user being analyzed...')
+         filestr = ''
+         tweetstr = ''
+         count = 0
+         for tweet in t.timeline(user_id=user):
+            if count == 0:
+                firstDate = Utility.dateStrToDate(tweet["created_at"])
+                lastDate = firstDate - datetime.timedelta(14)
+                count += 1
+                currentDate = Utility.dateStrToDate(tweet["created_at"])
+            if currentDate < lastDate:
+                break
+            if currentDate <= firstDate:
+                filestr += json.dumps(tweet)+"\n"
+                tweetstr += tweet['text'] + '\n'
+
+         for tweet in t.timeline(screen_name=user):
+            if count == 0:
+                firstDate = Utility.dateStrToDate(tweet["created_at"])
+                lastDate = firstDate - datetime.timedelta(14)
+                count += 1
+                currentDate = Utility.dateStrToDate(tweet["created_at"])
+            if currentDate < lastDate:
+                break
+            if currentDate <= firstDate:
+                filestr += json.dumps(tweet)+"\n"
+                tweetstr += tweet['text'] + '\n'
+
+         if os.path.isfile("Data/Training/Users/" + user + ".json"):
+            Utility.silentRemove("Data/Training/Users/" + user + ".json")
+         if os.path.isfile("Data/Training/UserTweets/" + user + ".txt"):
+            Utility.silentRemove("Data/Training/UserTweets/" + user + ".txt")
+         outfile = open("Data/Training/Users/" + user + ".json","a")
+         outfile.write(filestr)
+         outfile.close()
+         outfile = open("Data/Training/UserTweets/" + user + ".txt","a")
+         outfile.write(tweetstr)
+         outfile.close()
+
+def getUserPredictingData(idList):
+    t = Twarc(config.consumer_key, config.consumer_secret, config.access_token, config.access_secret)
+
+    for user in idList:
+         print(str(idList.index(user)+1) + 'th user being analyzed...')
+         filestr = ''
+         tweetstr = ''
+         count = 0
+         for tweet in t.timeline(user_id=user):
+            if count == 0:
+                firstDate = Utility.dateStrToDate(tweet["created_at"])
+                lastDate = firstDate - datetime.timedelta(14)
+                count += 1
+                currentDate = Utility.dateStrToDate(tweet["created_at"])
+            if currentDate < lastDate:
+                break
+            if currentDate <= firstDate:
+                filestr += json.dumps(tweet)+"\n"
+                tweetstr += tweet['text'] + '\n'
+         if os.path.isfile("Data/Predicting/Users/" + user + ".json"):
+            Utility.silentRemove("Data/Predicting/Users/" + user + ".json")
+         if os.path.isfile("Data/Predicting/UserTweets/" + user + ".txt"):
+            Utility.silentRemove("Data/Predicting/UserTweets/" + user + ".txt")
+         outfile = open("Data/Predicting/Users/" + user + ".json","a")
+         outfile.write(filestr)
+         outfile.close()
+         outfile = open("Data/Predicting/UserTweets/" + user + ".txt","a")
+         outfile.write(tweetstr)
+         outfile.close()
+
+def acceptListToTrainingData():
+    idfile = open('Data/MTurk/acceptList.csv','r')
+    idList = idfile.read().split('\n')[:-1]
+    idfile.close()
+    getUserTrainingData(idList)
+
+def listToPredictingData():
+    idfile = open('Data/MTurk/rejectList.csv','r')
+    idList = idfile.read().split('\n')[:-1]
+    #idList = ['14835269','898264108914667520','225761199']
+    idfile.close()
+    getUserPredictingData(idList)
+
+#getUserTweetData(['948604924404862976','532688309','823411622425350145','258044603','2941619999','26124106','265837499','122208164','97277710'])
+
+#acceptListToTrainingData()
+#listToPredictingData()
+getUserData()

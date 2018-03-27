@@ -1,0 +1,67 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jun  1 19:49:12 2017
+
+@author: Destiny
+"""
+
+class User(object):
+    
+    def __init__(self,screenName=None,ID=None):
+        self.screenName = screenName    #
+        self.id = str(ID)               #
+        self.followers = []             #
+        self.numFollowers = 0           #
+        self.followees = []             #
+        self.numFollowees = 0           #
+        self.tweets = []                #
+        self.tweetCountInSample = 0     # 
+        self.volume = 0                 #
+        self.robotIndex = 0.0           #
+        self.reply = 0                  #
+        self.questions = 0              #
+        self.retweets = 0               #
+        self.links = 0
+        self.neighbor = []
+        self.graph = None
+        self.mentioning = {}
+        self.mentioned = {}
+        self.firstDate = None
+        self.lastDate = None
+        self.deltaDate = None
+        self.coordinate = None
+        self.vector = None
+        self.inlink = 0
+        self.outlink = 0
+        self.pa = 0.0
+        self.na = 0.0
+        self.activation = 0.0
+        self.dominace = 0.0
+        self.reciprocity = 0.0
+        self.clusterCoefficient = 0.0
+        self.egoComponent = 0.0
+        self.antiDepress = 0.0
+        self.depressionTerms = 0.0
+        self.article = 0.0
+        self.negate = 0.0
+        self.swear = 0.0
+        self.prestigeRatio = 0.0
+        self.graphDensity = 0.0
+        self.twoHopNeighbor = 0.0
+        self.embeddedness = 0.0
+        
+        
+    def __gt__(self,other):
+        return self.tweetCountInSample > other.tweetCountInSample
+        
+    def __ge__(self,other):
+        return self.tweetCountInSample >= other.tweetCountInSample
+        
+    def __lt__(self,other):
+        return other.__gt__(self)
+        
+    def __le__(self,other):
+        return other.__ge__(self)
+        
+    def getTweetCountInSample(self):
+        return self.tweetCountInSample
